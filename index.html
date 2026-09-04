@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Highrange Infrastructure — Building Kerala's Tomorrow</title>
+  <meta name="description" content="Government-certified infrastructure contractor in Idukki, Kerala. PWD & PMGSY specialists — roads, bridges, culverts. Est. 2019." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div id="progress-bar"></div>
+
+<!-- Custom Cursor -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- ===================== NAV DOCK ===================== -->
+<nav>
+  <a href="#hero" class="nav-logo">⬡ HIGHRANGE</a>
+  <div class="nav-items">
+    <a href="#about"       class="nav-item">About</a>
+    <a href="#services"    class="nav-item">Services</a>
+    <a href="#projects"    class="nav-item">Projects</a>
+    <a href="#equipment"   class="nav-item">Fleet</a>
+    <a href="#timeline"    class="nav-item">Journey</a>
+    <a href="#contact"     class="nav-cta">Contact →</a>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Adimali, Idukki · Kerala · Est. 2019
+    </div>
+    <h1 class="hero-title">
+      <span class="line-1">We Build What</span>
+      <span class="line-2">Connects Kerala</span>
+    </h1>
+    <p class="hero-sub">
+      Government-certified infrastructure contractor specialising in PWD &amp; PMGSY roads, mountain bridges, and civil engineering across Kerala's high-range terrain.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">
+        <span>View Projects</span>
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#contact" class="btn-specular">
+        <span>Get In Touch</span>
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ===================== MARQUEE ===================== -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <div class="marquee-item">PWD Approved <span class="sep">✦</span></div>
+    <div class="marquee-item">PMGSY Certified <span class="sep">✦</span></div>
+    <div class="marquee-item">Bridge Construction <span class="sep">✦</span></div>
+    <div class="marquee-item">Mountain Road Specialists <span class="sep">✦</span></div>
+    <div class="marquee-item">Culvert Works <span class="sep">✦</span></div>
+    <div class="marquee-item">Idukki · Ernakulam · Thrissur <span class="sep">✦</span></div>
+    <div class="marquee-item">7+ Years Experience <span class="sep">✦</span></div>
+    <div class="marquee-item">ISO Grade Equipment <span class="sep">✦</span></div>
+    <!-- duplicate for seamless loop -->
+    <div class="marquee-item">PWD Approved <span class="sep">✦</span></div>
+    <div class="marquee-item">PMGSY Certified <span class="sep">✦</span></div>
+    <div class="marquee-item">Bridge Construction <span class="sep">✦</span></div>
+    <div class="marquee-item">Mountain Road Specialists <span class="sep">✦</span></div>
+    <div class="marquee-item">Culvert Works <span class="sep">✦</span></div>
+    <div class="marquee-item">Idukki · Ernakulam · Thrissur <span class="sep">✦</span></div>
+    <div class="marquee-item">7+ Years Experience <span class="sep">✦</span></div>
+    <div class="marquee-item">ISO Grade Equipment <span class="sep">✦</span></div>
+  </div>
+</div>
+
+<!-- ===================== STATS ===================== -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-number" data-target="10" data-suffix="+">0+</div>
+        <div class="stat-label">Satisfied Clients</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-number" data-target="25" data-suffix="+">0+</div>
+        <div class="stat-label">Works Completed</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-number" data-target="100" data-suffix="+">0+</div>
+        <div class="stat-label">Employees</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <div class="stat-number" data-target="30" data-suffix="+">0+</div>
+        <div class="stat-label">Machines &amp; Equipment</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-4">
+        <div class="stat-number" data-prefix="₹" data-target="100" data-suffix="+ Cr">₹0+</div>
+        <div class="stat-label">Total Project Value</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-3d-card">
+          <canvas id="about-canvas" style="width:100%;height:500px;display:block;"></canvas>
+          <script>
+            // Inline mini Three.js terrain viz for about card
+            (function(){
+              const c = document.getElementById('about-canvas');
+              if(!c || typeof THREE === 'undefined') return;
+              setTimeout(()=>{
+                const W=c.clientWidth||400, H=c.clientHeight||500;
+                const r=new THREE.WebGLRenderer({canvas:c,antialias:true,alpha:true});
+                r.setSize(W,H); r.setPixelRatio(Math.min(devicePixelRatio,2));
+                r.setClearColor(0x000000,0);
+                const sc=new THREE.Scene();
+                const cam=new THREE.PerspectiveCamera(50,W/H,0.1,100);
+                cam.position.set(0,8,12); cam.lookAt(0,0,0);
+                sc.add(new THREE.AmbientLight(0x334466,2));
+                const dl=new THREE.DirectionalLight(0xe8a020,3); dl.position.set(5,10,5); sc.add(dl);
+                const geo=new THREE.PlaneGeometry(16,16,32,32);
+                const pos=geo.attributes.position;
+                for(let i=0;i<pos.count;i++){
+                  const x=pos.getX(i), z=pos.getZ(i);
+                  const h = Math.sin(x*0.4)*1.5 + Math.cos(z*0.3)*1.2 + Math.sin(x*0.8+z*0.5)*0.8;
+                  pos.setZ(i,h);
+                }
+                pos.needsUpdate=true;
+                geo.computeVertexNormals();
+                const mat=new THREE.MeshStandardMaterial({color:0x1a2535,wireframe:false,roughness:0.8});
+                const mesh=new THREE.Mesh(geo,mat);
+                mesh.rotation.x=-Math.PI/2;
+                sc.add(mesh);
+                const wmat=new THREE.MeshStandardMaterial({color:0xe8a020,wireframe:true,transparent:true,opacity:0.15});
+                const wmesh=new THREE.Mesh(geo.clone(),wmat);
+                wmesh.rotation.x=-Math.PI/2; wmesh.position.y=0.01;
+                sc.add(wmesh);
+                let t=0;
+                (function anim(){requestAnimationFrame(anim);t+=0.008;
+                  mesh.rotation.z=t*0.1; wmesh.rotation.z=t*0.1;
+                  cam.position.x=Math.sin(t*0.3)*3; cam.lookAt(0,0,0);
+                  r.render(sc,cam);
+                })();
+              },500);
+            })();
+          </script>
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="section-tag reveal">About Us</span>
+        <h2 class="reveal reveal-delay-1">Built on the<br>High Ranges of Kerala</h2>
+        <p class="reveal reveal-delay-2">
+          Rooted in the misty hills of Adimali, Idukki, Highrange Infrastructure LLP has been quietly shaping Kerala's connectivity since 2019. What started as a vision to serve India's most challenging terrains has grown into a trusted government contractor.
+        </p>
+        <p class="reveal reveal-delay-3">
+          We operate where others don't dare — mountain passes, monsoon-flooded valley roads, and river-crossing bridges that become lifelines for remote communities. Every project we take is a responsibility to the people who depend on it.
+        </p>
+        <div class="about-features reveal reveal-delay-4">
+          <div class="feature-pill"><span class="icon">🏛️</span> PWD Registered</div>
+          <div class="feature-pill"><span class="icon">🛣️</span> PMGSY Certified</div>
+          <div class="feature-pill"><span class="icon">⛰️</span> High-Range Specialists</div>
+          <div class="feature-pill"><span class="icon">🌉</span> Bridge Experts</div>
+          <div class="feature-pill"><span class="icon">🔩</span> Heavy Fleet Owned</div>
+          <div class="feature-pill"><span class="icon">📋</span> ISO Compliant</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES / SPOTLIGHT ===================== -->
+<section id="services" class="velocity-section">
+  <div class="container">
+    <div class="services-header">
+      <span class="section-tag reveal">What We Do</span>
+      <h2 class="reveal reveal-delay-1">Infrastructure That<br>Stands the Test of Time</h2>
+      <p class="reveal reveal-delay-2">From mountain passes to river crossings, our capabilities span the full spectrum of civil infrastructure.</p>
+    </div>
+    <div class="services-grid">
+
+      <!-- Large card -->
+      <div class="spotlight-card large reveal">
+        <div>
+          <div class="card-icon">🛣️</div>
+          <h3>Road Construction</h3>
+          <p>PMGSY &amp; PWD grade road works across Kerala's high-range districts. Bituminous surfacing, sub-base, base course, WBM — executed with German-precision compaction equipment.</p>
+          <div class="card-tags">
+            <span class="card-tag">PMGSY Roads</span>
+            <span class="card-tag">PWD Works</span>
+            <span class="card-tag">BT Surfacing</span>
+            <span class="card-tag">Earthwork</span>
+          </div>
+        </div>
+        <div class="large-visual">🛣️</div>
+      </div>
+
+      <div class="spotlight-card reveal reveal-delay-1">
+        <div class="card-icon">🌉</div>
+        <h3>Bridge Construction</h3>
+        <p>RCC &amp; prestressed concrete bridges across Kerala's rivers and ravines. Complete from foundation to deck — pile driving, formwork, casting, finishing.</p>
+        <div class="card-tags">
+          <span class="card-tag">RCC Bridges</span>
+          <span class="card-tag">Culverts</span>
+          <span class="card-tag">Pile Foundation</span>
+        </div>
+      </div>
+
+      <div class="spotlight-card reveal reveal-delay-2">
+        <div class="card-icon">💧</div>
+        <h3>Drainage &amp; Culverts</h3>
+        <p>Cross-drainage works, box culverts, hume pipe culverts, retaining walls. Critical for Kerala's intense monsoon water management.</p>
+        <div class="card-tags">
+          <span class="card-tag">Box Culverts</span>
+          <span class="card-tag">Retaining Walls</span>
+          <span class="card-tag">Storm Drains</span>
+        </div>
+      </div>
+
+      <div class="spotlight-card reveal reveal-delay-1">
+        <div class="card-icon">🏗️</div>
+        <h3>Earthwork &amp; Grading</h3>
+        <p>Mass excavation, embankment filling, slope protection, and land grading using our fleet of Hitachi excavators and JCB machines for precision earth moving at scale.</p>
+        <div class="card-tags">
+          <span class="card-tag">Excavation</span>
+          <span class="card-tag">Embankment</span>
+          <span class="card-tag">Slope Protection</span>
+        </div>
+      </div>
+
+      <div class="spotlight-card reveal reveal-delay-2">
+        <div class="card-icon">⚙️</div>
+        <h3>Site Development</h3>
+        <p>Site clearing, compound walls, labour quarters, site offices, and temporary infrastructure for major government project sites across Idukki and Ernakulam districts.</p>
+        <div class="card-tags">
+          <span class="card-tag">Site Clearing</span>
+          <span class="card-tag">Compound Walls</span>
+          <span class="card-tag">Temporary Works</span>
+        </div>
+      </div>
+
+      <!-- Large card bottom -->
+      <div class="spotlight-card large reveal">
+        <div class="large-visual">🌉</div>
+        <div>
+          <div class="card-icon">📐</div>
+          <h3>Structural &amp; Civil Works</h3>
+          <p>Full scope civil engineering — RCC structures, compound walls, water tanks, and government-spec buildings as part of road and bridge packages.</p>
+          <div class="card-tags">
+            <span class="card-tag">RCC Structures</span>
+            <span class="card-tag">Water Tanks</span>
+            <span class="card-tag">Govt. Buildings</span>
+            <span class="card-tag">Formwork</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJECTS — HORIZONTAL SCROLL ===================== -->
+<section id="projects">
+  <div class="projects-header">
+    <div>
+      <span class="section-tag reveal">Our Work</span>
+      <h2 class="reveal reveal-delay-1">Projects That<br>Move Kerala Forward</h2>
+    </div>
+    <div class="scroll-hint-arrow reveal">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <span>Drag to explore</span>
+    </div>
+  </div>
+
+  <div class="projects-track-wrap">
+    <div class="projects-track">
+
+      <div class="project-card">
+        <div class="project-bg-visual"></div>
+        <div class="project-bg">🌉</div>
+        <div class="project-overlay"></div>
+        <div class="project-number">01</div>
+        <div class="project-info">
+          <div class="project-type">Bridge · PMGSY</div>
+          <div class="project-name">Periyar Valley Bridge, Idukki</div>
+          <div class="project-meta">
+            <span>📍 Devikulam</span>
+            <span>📅 2023</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-bg-visual"></div>
+        <div class="project-bg">🛣️</div>
+        <div class="project-overlay"></div>
+        <div class="project-number">02</div>
+        <div class="project-info">
+          <div class="project-type">Road · PWD</div>
+          <div class="project-name">Adimali–Munnar Bypass Road</div>
+          <div class="project-meta">
+            <span>📍 Idukki</span>
+            <span>📅 2022</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-bg-visual"></div>
+        <div class="project-bg">💧</div>
+        <div class="project-overlay"></div>
+        <div class="project-number">03</div>
+        <div class="project-info">
+          <div class="project-type">Culvert · PMGSY</div>
+          <div class="project-name">Box Culvert Package, Kuttampuzha</div>
+          <div class="project-meta">
+            <span>📍 Ernakulam</span>
+            <span>📅 2021</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-bg-visual"></div>
+        <div class="project-bg">🏗️</div>
+        <div class="project-overlay"></div>
+        <div class="project-number">04</div>
+        <div class="project-info">
+          <div class="project-type">Earthwork · PWD</div>
+          <div class="project-name">NH-183 Embankment Works</div>
+          <div class="project-meta">
+            <span>📍 Thodupuzha</span>
+            <span>📅 2022</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-bg-visual"></div>
+        <div class="project-bg">🌉</div>
+        <div class="project-overlay"></div>
+        <div class="project-number">05</div>
+        <div class="project-info">
+          <div class="project-type">Bridge · PMGSY</div>
+          <div class="project-name">Kallar River RCC Bridge</div>
+          <div class="project-meta">
+            <span>📍 Munnar</span>
+            <span>📅 2023</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-bg-visual"></div>
+        <div class="project-bg">🛣️</div>
+        <div class="project-overlay"></div>
+        <div class="project-number">06</div>
+        <div class="project-info">
+          <div class="project-type">Road · PMGSY</div>
+          <div class="project-name">Valara Connectivity Road Package</div>
+          <div class="project-meta">
+            <span>📍 Idukki</span>
+            <span>📅 2024</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-bg-visual"></div>
+        <div class="project-bg">⚙️</div>
+        <div class="project-overlay"></div>
+        <div class="project-number">07</div>
+        <div class="project-info">
+          <div class="project-type">Retaining Wall · PWD</div>
+          <div class="project-name">High-Range Slope Protection Works</div>
+          <div class="project-meta">
+            <span>📍 Devikulam</span>
+            <span>📅 2021</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-bg-visual"></div>
+        <div class="project-bg">🏛️</div>
+        <div class="project-overlay"></div>
+        <div class="project-number">08</div>
+        <div class="project-info">
+          <div class="project-type">Civil · Govt.</div>
+          <div class="project-name">Panchayath Infrastructure Package</div>
+          <div class="project-meta">
+            <span>📍 Mannamkandam</span>
+            <span>📅 2024</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EQUIPMENT DEPTH CAROUSEL ===================== -->
+<section id="equipment" class="velocity-section">
+  <div class="container">
+    <div class="equipment-header">
+      <span class="section-tag reveal">Heavy Fleet</span>
+      <h2 class="reveal reveal-delay-1">Machines That Mean Business</h2>
+      <p class="reveal reveal-delay-2" style="color:var(--muted);max-width:480px;margin:16px auto 0;">
+        Our owned fleet of 30+ machines keeps projects on schedule — no rental delays, no downtime dependencies.
+      </p>
+    </div>
+
+    <div class="depth-carousel">
+      <div class="carousel-track-3d">
+
+        <div class="equip-card">
+          <div class="equip-emoji">🚜</div>
+          <div class="equip-name">Hitachi ZX 200</div>
+          <div class="equip-desc">Heavy-duty hydraulic excavator for mountain cuts and river digging</div>
+          <div class="equip-badge">6 Units</div>
+        </div>
+
+        <div class="equip-card">
+          <div class="equip-emoji">🚛</div>
+          <div class="equip-name">Bharatbenz Lorry</div>
+          <div class="equip-desc">12-wheel tipper trucks for material transport on high-range roads</div>
+          <div class="equip-badge">8 Units</div>
+        </div>
+
+        <div class="equip-card">
+          <div class="equip-emoji">🏗️</div>
+          <div class="equip-name">JCB 3DX</div>
+          <div class="equip-desc">Backhoe loader for mixed excavation and backfilling operations</div>
+          <div class="equip-badge">4 Units</div>
+        </div>
+
+        <div class="equip-card">
+          <div class="equip-emoji">🪨</div>
+          <div class="equip-name">Wirtgen Compactor</div>
+          <div class="equip-desc">Vibratory roller for road compaction to PWD specifications</div>
+          <div class="equip-badge">3 Units</div>
+        </div>
+
+        <div class="equip-card">
+          <div class="equip-emoji">🔩</div>
+          <div class="equip-name">Concrete Batching Plant</div>
+          <div class="equip-desc">On-site M30/M35 grade RCC production for bridge and structure works</div>
+          <div class="equip-badge">2 Units</div>
+        </div>
+
+        <div class="equip-card">
+          <div class="equip-emoji">🏚️</div>
+          <div class="equip-name">Tower Crane</div>
+          <div class="equip-desc">40-ton lifting capacity for bridge formwork and heavy structural steel</div>
+          <div class="equip-badge">1 Unit</div>
+        </div>
+
+        <div class="equip-card">
+          <div class="equip-emoji">🛤️</div>
+          <div class="equip-name">Asphalt Paver</div>
+          <div class="equip-desc">Pneumatic-wheeled paver for smooth BT surfacing on PMGSY roads</div>
+          <div class="equip-badge">2 Units</div>
+        </div>
+
+        <div class="equip-card">
+          <div class="equip-emoji">💦</div>
+          <div class="equip-name">Water Tanker</div>
+          <div class="equip-desc">12,000L tankers for road curing, dust suppression and site operations</div>
+          <div class="equip-badge">3 Units</div>
+        </div>
+
+        <div class="equip-card">
+          <div class="equip-emoji">🔨</div>
+          <div class="equip-name">Pile Driver</div>
+          <div class="equip-desc">Hydraulic hammer for deep foundation work on bridge abutments</div>
+          <div class="equip-badge">1 Unit</div>
+        </div>
+
+        <div class="equip-card">
+          <div class="equip-emoji">⚡</div>
+          <div class="equip-name">Generator Sets</div>
+          <div class="equip-desc">250–500 KVA DG sets for uninterrupted site power in remote areas</div>
+          <div class="equip-badge">4 Units</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="carousel-controls">
+      <button class="carousel-btn" id="carousel-prev">←</button>
+      <button class="carousel-btn" id="carousel-next">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TIMELINE ===================== -->
+<section id="timeline">
+  <div class="container">
+    <div class="timeline-header">
+      <span class="section-tag reveal">Our Journey</span>
+      <h2 class="reveal reveal-delay-1">From Adimali to Across Kerala</h2>
+    </div>
+    <div class="timeline-track">
+      <div class="timeline-line"></div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">April 2019</div>
+          <h3>Company Founded</h3>
+          <p>Highrange Infrastructure LLP registered in Adimali, Idukki. First office set up. PWD registration obtained.</p>
+        </div>
+        <div class="timeline-dot">🏛️</div>
+        <div class="timeline-empty"></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-empty"></div>
+        <div class="timeline-dot">🛣️</div>
+        <div class="timeline-content">
+          <div class="timeline-year">2019–2020</div>
+          <h3>First PMGSY Project</h3>
+          <p>Secured first government road connectivity project under PMGSY in Devikulam taluk. ₹1.5 Cr contract.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">2020</div>
+          <h3>Fleet Expansion</h3>
+          <p>Acquired 3 Hitachi excavators and 4 Bharatbenz tippers. Secured Federal Bank credit line of ₹7.5 Cr for heavy equipment.</p>
+        </div>
+        <div class="timeline-dot">🚜</div>
+        <div class="timeline-empty"></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-empty"></div>
+        <div class="timeline-dot">🌉</div>
+        <div class="timeline-content">
+          <div class="timeline-year">2021</div>
+          <h3>First Bridge Contract</h3>
+          <p>Entered bridge construction with first RCC bridge project. Hired structural engineers and expanded the team to 60+ workers.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">2022–2023</div>
+          <h3>Multi-District Presence</h3>
+          <p>Expanded operations to Ernakulam and Thrissur districts. Completed 10+ concurrent projects. Team reached 100+.</p>
+        </div>
+        <div class="timeline-dot">📈</div>
+        <div class="timeline-empty"></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-empty"></div>
+        <div class="timeline-dot">🏆</div>
+        <div class="timeline-content">
+          <div class="timeline-year">2024–Now</div>
+          <h3>₹100+ Crore Milestone</h3>
+          <p>Crossed ₹100 crore in cumulative project value. Currently executing 5 active government contracts across Kerala's high range.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section id="testimonials">
+  <div class="container">
+    <div class="testimonials-header">
+      <span class="section-tag reveal">Client Voices</span>
+      <h2 class="reveal reveal-delay-1">Trusted by Government<br>&amp; Community Alike</h2>
+    </div>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card reveal">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-text">
+          The Periyar bridge was completed three months ahead of schedule despite heavy monsoon disruptions. Their commitment to timelines and quality of RCC work was exemplary.
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar">👷</div>
+          <div>
+            <div class="stars">★★★★★</div>
+            <div class="author-name">Executive Engineer</div>
+            <div class="author-role">Kerala PWD, Devikulam Division</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-text">
+          We've worked with many contractors across Idukki. Highrange consistently delivers to PMGSY specs without cutting corners. Our village finally has an all-weather road.
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar">🏘️</div>
+          <div>
+            <div class="stars">★★★★★</div>
+            <div class="author-name">Panchayath President</div>
+            <div class="author-role">Mannamkandam Grama Panchayath</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-text">
+          Their team managed the Kuttampuzha culvert package in extremely difficult terrain with zero safety incidents. Professional, skilled, and reliable at every stage.
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar">📐</div>
+          <div>
+            <div class="stars">★★★★★</div>
+            <div class="author-name">Project Manager</div>
+            <div class="author-role">PMGSY State Unit, Kerala</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <span class="section-tag reveal">Contact</span>
+        <h2 class="reveal reveal-delay-1">Let's Build<br>Something Great</h2>
+        <p class="reveal reveal-delay-2">
+          Whether you're a government department, contractor, or project partner — we're ready to talk. Based in Adimali, serving all of Kerala.
+        </p>
+        <div class="contact-details reveal reveal-delay-3">
+          <div class="contact-detail">
+            <div class="detail-icon">📍</div>
+            <div>
+              <div class="detail-label">Registered Office</div>
+              <div class="detail-value">No. XV/515, Adimali P.O,<br>Idukki, Kerala — 685561</div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="detail-icon">📧</div>
+            <div>
+              <div class="detail-label">Email</div>
+              <div class="detail-value">highrangeinfra@gmail.com</div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="detail-icon">🏛️</div>
+            <div>
+              <div class="detail-label">Registration</div>
+              <div class="detail-value">LLPIN: AAO-9170<br>ROC: Ernakulam</div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="detail-icon">⏰</div>
+            <div>
+              <div class="detail-label">Working Hours</div>
+              <div class="detail-value">Mon–Sat: 9:00 AM – 6:00 PM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal reveal-delay-2">
+        <h3>Send a Message</h3>
+        <form>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" placeholder="Full name" required />
+            </div>
+            <div class="form-group">
+              <label>Organisation</label>
+              <input type="text" placeholder="Dept. / Company" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label>Enquiry Type</label>
+            <select>
+              <option value="">Select type...</option>
+              <option>Road Construction</option>
+              <option>Bridge Construction</option>
+              <option>Culvert / Drainage</option>
+              <option>Equipment Hire</option>
+              <option>Government Tender</option>
+              <option>Sub-contract Work</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Describe your project or enquiry..."></textarea>
+          </div>
+          <button type="submit" class="btn-specular" style="width:100%;justify-content:center;padding:16px;">
+            <span>Send Message →</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand reveal">
+        <div class="logo-text">⬡ HIGHRANGE</div>
+        <div class="logo-sub">Infrastructure LLP</div>
+        <p>Building roads, bridges and futures across Kerala's high-range terrain since 2019. Every project is a promise kept to the communities we serve.</p>
+      </div>
+      <div class="footer-col reveal reveal-delay-1">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Road Construction</a></li>
+          <li><a href="#services">Bridge Construction</a></li>
+          <li><a href="#services">Culverts &amp; Drains</a></li>
+          <li><a href="#services">Earthwork</a></li>
+          <li><a href="#services">Structural Works</a></li>
+        </ul>
+      </div>
+      <div class="footer-col reveal reveal-delay-2">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#timeline">Our Journey</a></li>
+          <li><a href="#equipment">Fleet</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+        </ul>
+      </div>
+      <div class="footer-col reveal reveal-delay-3">
+        <h4>Reach Us</h4>
+        <ul>
+          <li><a href="#">Adimali, Idukki</a></li>
+          <li><a href="#">highrangeinfra@gmail.com</a></li>
+          <li><a href="#">Kerala, India</a></li>
+          <li><a href="#">LLPIN: AAO-9170</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Highrange Infrastructure LLP. All rights reserved. Adimali, Idukki, Kerala.</p>
+      <div class="footer-certifications">
+        <span class="cert-badge">PWD ✓</span>
+        <span class="cert-badge">PMGSY ✓</span>
+        <span class="cert-badge">MCA Active ✓</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- JS -->
+<script src="js/main.js" defer></script>
+
+</body>
+</html>
