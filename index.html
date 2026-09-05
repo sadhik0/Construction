@@ -1,313 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Highrange Infrastructure — Building Kerala's Tomorrow</title>
-  <meta name="description" content="Government-certified infrastructure contractor in Idukki, Kerala. PWD & PMGSY specialists — roads, bridges, culverts."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet"/>
-  <style>
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap');
-
-/* === SAPPHIRE NIGHTFALL WHISPER COLOR SCHEME === */
-:root {
-  --deep:       #05080f;
-  --concrete:   #080d18;
-  --steel:      #0d1525;
-  --steel2:     #111c30;
-  --sapphire:   #1a56db;
-  --sap-bright: #3b82f6;
-  --sap-light:  #93c5fd;
-  --sap-pale:   #bfdbfe;
-  --sap-glow:   rgba(59,130,246,0.35);
-  --sap-dim:    rgba(59,130,246,0.12);
-  --sap-border: rgba(59,130,246,0.2);
-  --glass:      rgba(255,255,255,0.03);
-  --glass-b:    rgba(255,255,255,0.07);
-  --glass-h:    rgba(255,255,255,0.06);
-  --text:       #e8f0fe;
-  --muted:      rgba(188,210,254,0.55);
-  --white:      #f0f4ff;
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Highrange Infrastructure LLP — Building Kerala's Tomorrow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+/* ===================== SAPPHIRE NIGHTFALL WHISPER ===================== */
+:root{
+  --night:#050A15;
+  --night2:#091526;
+  --night3:#0F1E36;
+  --sap:#2355D6;
+  --sap2:#4F80F0;
+  --sap3:#93B8FF;
+  --whisper:#C5DEFF;
+  --w-dim:rgba(197,222,255,0.07);
+  --w-border:rgba(197,222,255,0.11);
+  --w-hover:rgba(197,222,255,0.1);
+  --text:#D8E6FF;
+  --muted:rgba(197,222,255,0.45);
+  --glow:rgba(35,85,214,0.35);
+  --glow2:rgba(79,128,240,0.2);
 }
-
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;overflow-x:hidden}
-body{background:var(--deep);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;cursor:none}
-
-/* SCROLLBAR */
+body{background:var(--night);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.6;overflow-x:hidden;cursor:none}
 ::-webkit-scrollbar{width:3px}
-::-webkit-scrollbar-track{background:var(--deep)}
-::-webkit-scrollbar-thumb{background:var(--sapphire);border-radius:2px}
+::-webkit-scrollbar-track{background:var(--night)}
+::-webkit-scrollbar-thumb{background:var(--sap);border-radius:2px}
 
 /* CURSOR */
-#cursor{width:10px;height:10px;background:var(--sap-bright);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s,background .3s;mix-blend-mode:screen}
-#cursor-ring{width:32px;height:32px;border:1.5px solid rgba(59,130,246,0.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s}
+#cur{width:10px;height:10px;background:var(--sap2);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .25s,height .25s;mix-blend-mode:screen}
+#cur-r{width:30px;height:30px;border:1.5px solid rgba(79,128,240,.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%)}
+#pgbar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--sap),var(--sap3));z-index:9999;box-shadow:0 0 8px var(--glow);width:0}
 
-/* PROGRESS */
-#progress-bar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--sapphire),var(--sap-light));z-index:9999;box-shadow:0 0 8px var(--sap-glow)}
-
-/* === NAV DOCK === */
-nav{
-  position:fixed;top:20px;left:50%;transform:translateX(-50%);
-  z-index:1000;display:flex;align-items:center;gap:4px;
-  padding:10px 20px;
-  background:rgba(5,8,15,0.75);
-  backdrop-filter:blur(24px) saturate(180%);
-  -webkit-backdrop-filter:blur(24px) saturate(180%);
-  border:1px solid var(--glass-b);border-radius:999px;
-  box-shadow:0 8px 40px rgba(0,0,0,0.6),inset 0 1px 0 rgba(255,255,255,0.04);
-  transition:top .4s cubic-bezier(.34,1.56,.64,1);
-}
-.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:14px;letter-spacing:.05em;color:var(--sap-light);text-decoration:none;margin-right:12px;white-space:nowrap}
+/* NAV */
+nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:1000;display:flex;align-items:center;gap:4px;padding:9px 18px;background:rgba(5,10,21,.8);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid var(--w-border);border-radius:999px;box-shadow:0 8px 40px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.04);transition:top .4s}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:13px;letter-spacing:.06em;color:var(--sap3);text-decoration:none;margin-right:10px;white-space:nowrap}
 .nav-items{display:flex;align-items:center;gap:2px}
-.nav-item{position:relative;padding:8px 14px;font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;border-radius:999px;transition:all .3s cubic-bezier(.34,1.56,.64,1);white-space:nowrap}
-.nav-item:hover{color:var(--white);background:var(--glass-h);transform:translateY(-2px) scale(1.07)}
-.nav-item.active{color:var(--sap-light);background:var(--sap-dim)}
-.nav-cta{margin-left:8px;padding:8px 18px;background:var(--sapphire);color:#fff;border-radius:999px;font-size:13px;font-weight:700;text-decoration:none;transition:all .3s}
-.nav-cta:hover{transform:translateY(-2px) scale(1.05);box-shadow:0 8px 24px var(--sap-glow)}
+.nav-item{padding:7px 13px;font-size:12px;font-weight:500;color:var(--muted);text-decoration:none;border-radius:999px;transition:all .3s;white-space:nowrap}
+.nav-item:hover,.nav-item.active{color:var(--text);background:var(--w-hover)}
+.nav-cta{margin-left:6px;padding:8px 18px;background:var(--sap);color:#fff;border-radius:999px;font-size:12px;font-weight:700;text-decoration:none;transition:all .3s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 20px var(--glow)}
 
-/* === HERO === */
+/* HERO */
 #hero{position:relative;width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
 #hero-canvas{position:absolute;inset:0;width:100%;height:100%}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,8,15,.15) 0%,rgba(5,8,15,.05) 35%,rgba(5,8,15,.6) 75%,rgba(5,8,15,1) 100%)}
-.hero-content{position:relative;z-index:2;text-align:center;max-width:860px;padding:0 24px}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:var(--sap-dim);border:1px solid var(--sap-border);border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.12em;color:var(--sap-light);margin-bottom:28px;text-transform:uppercase}
-.hero-badge .dot{width:6px;height:6px;background:var(--sap-bright);border-radius:50%;animation:pulse 2s infinite}
-.hero-title{font-family:'Syne',sans-serif;font-size:clamp(44px,7.5vw,96px);font-weight:800;line-height:.95;letter-spacing:-.03em;margin-bottom:24px}
-.hero-title .line-1{display:block;color:var(--white)}
-.hero-title .line-2{display:block;background:linear-gradient(135deg,var(--sap-light) 0%,#fff 40%,var(--sap-pale) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{font-size:17px;color:var(--muted);max-width:500px;margin:0 auto 40px;line-height:1.75}
-.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-
-/* hero scroll hint — bottom of hero, NOT near buttons */
-.hero-scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase;z-index:2}
-.scroll-line{width:1px;height:44px;background:linear-gradient(180deg,var(--sap-bright),transparent);animation:scrollline 2s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
-@keyframes scrollline{0%{opacity:0;transform:scaleY(0);transform-origin:top}50%{opacity:1;transform:scaleY(1)}100%{opacity:0;transform:scaleY(0);transform-origin:bottom}}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,10,21,.1) 0%,rgba(5,10,21,.05) 30%,rgba(5,10,21,.55) 70%,rgba(5,10,21,1) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:820px;padding:100px 24px 0}
+.hero-loc{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--sap3);margin-bottom:24px;border:1px solid rgba(79,128,240,.25);padding:5px 14px;border-radius:999px;background:rgba(35,85,214,.1)}
+.hero-title{font-family:'Syne',sans-serif;font-size:clamp(44px,7.5vw,94px);font-weight:800;line-height:.95;letter-spacing:-.03em;margin-bottom:22px}
+.hero-title .l1{display:block;color:var(--whisper)}
+.hero-title .l2{display:block;background:linear-gradient(120deg,var(--sap3),#fff 45%,var(--whisper));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:16px;color:var(--muted);max-width:480px;margin:0 auto 36px;line-height:1.75}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--muted);font-size:10px;letter-spacing:.14em;text-transform:uppercase;z-index:3}
+.scroll-ln{width:1px;height:40px;background:linear-gradient(180deg,var(--sap2),transparent);animation:sln 2s ease-in-out infinite}
+@keyframes sln{0%{opacity:0;transform:scaleY(0);transform-origin:top}50%{opacity:1;transform:scaleY(1)}100%{opacity:0;transform:scaleY(0);transform-origin:bottom}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 
 /* BUTTONS */
-.btn-primary{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:var(--sapphire);color:#fff;border-radius:999px;font-weight:700;font-size:14px;text-decoration:none;transition:all .3s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden}
-.btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);opacity:0;transition:opacity .3s}
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 32px var(--sap-glow)}
-.btn-primary:hover::before{opacity:1}
-.btn-ghost{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border:1px solid var(--glass-b);color:var(--text);border-radius:999px;font-weight:500;font-size:14px;text-decoration:none;backdrop-filter:blur(12px);transition:all .3s}
-.btn-ghost:hover{background:var(--glass-h);border-color:rgba(255,255,255,.14);transform:translateY(-2px)}
+.btn-a{display:inline-flex;align-items:center;gap:9px;padding:13px 30px;background:var(--sap);color:#fff;border-radius:999px;font-weight:700;font-size:13px;text-decoration:none;transition:all .3s;position:relative;overflow:hidden}
+.btn-a::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);opacity:0;transition:opacity .3s}
+.btn-a:hover{transform:translateY(-3px);box-shadow:0 12px 30px var(--glow)}
+.btn-a:hover::after{opacity:1}
+.btn-b{display:inline-flex;align-items:center;gap:9px;padding:13px 30px;border:1px solid var(--w-border);color:var(--text);border-radius:999px;font-weight:500;font-size:13px;text-decoration:none;transition:all .3s;backdrop-filter:blur(10px)}
+.btn-b:hover{background:var(--w-hover);border-color:rgba(197,222,255,.18);transform:translateY(-2px)}
 
-/* SPECULAR BUTTON */
-.btn-specular{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:999px;font-weight:700;font-size:14px;text-decoration:none;position:relative;overflow:hidden;background:linear-gradient(135deg,#0a1628 0%,#0d1d3a 100%);color:var(--sap-light);border:1px solid var(--sap-border);cursor:none;transition:all .4s}
-.btn-specular::before{content:'';position:absolute;width:200%;height:200%;top:-50%;left:-50%;background:conic-gradient(from 0deg,transparent 0deg,rgba(59,130,246,.4) 60deg,rgba(147,197,253,.3) 90deg,transparent 120deg,transparent 360deg);animation:specular-spin 3s linear infinite}
-.btn-specular::after{content:'';position:absolute;inset:1px;border-radius:999px;background:linear-gradient(135deg,#05080f 0%,#0d1525 100%)}
-.btn-specular span{position:relative;z-index:1}
-.btn-specular:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(59,130,246,.3)}
-@keyframes specular-spin{to{transform:rotate(360deg)}}
-
-/* SECTIONS */
-section{padding:100px 0;position:relative}
-.container{max-width:1200px;margin:0 auto;padding:0 48px}
-.section-tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--sap-bright);margin-bottom:16px}
-h2{font-family:'Syne',sans-serif;font-size:clamp(36px,5vw,58px);font-weight:800;line-height:1.05;letter-spacing:-.02em}
+/* SPECULAR */
+.btn-spec{display:inline-flex;align-items:center;gap:9px;padding:13px 30px;border-radius:999px;font-weight:700;font-size:13px;text-decoration:none;position:relative;overflow:hidden;color:var(--sap3);border:1px solid rgba(79,128,240,.3);background:var(--night2);cursor:none;transition:transform .3s,box-shadow .3s}
+.btn-spec::before{content:'';position:absolute;width:200%;height:200%;top:-50%;left:-50%;background:conic-gradient(from 0deg,transparent,rgba(79,128,240,.35) 60deg,rgba(197,222,255,.25) 90deg,transparent 120deg,transparent);animation:sspin 3s linear infinite}
+.btn-spec::after{content:'';position:absolute;inset:1px;border-radius:999px;background:var(--night2)}
+.btn-spec span{position:relative;z-index:1}
+.btn-spec:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(79,128,240,.28)}
+@keyframes sspin{to{transform:rotate(360deg)}}
 
 /* MARQUEE */
-.marquee-section{padding:16px 0;overflow:hidden;border-top:1px solid var(--glass-b);border-bottom:1px solid var(--glass-b);background:var(--steel)}
-.marquee-track{display:flex;gap:40px;animation:marquee 28s linear infinite;width:max-content}
-.marquee-track:hover{animation-play-state:paused}
-.marquee-item{display:flex;align-items:center;gap:16px;white-space:nowrap;font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
-.marquee-item .sep{color:var(--sap-bright);font-size:16px;opacity:.5}
-@keyframes marquee{to{transform:translateX(-50%)}}
+.mq{padding:14px 0;overflow:hidden;border-top:1px solid var(--w-border);border-bottom:1px solid var(--w-border);background:var(--night2)}
+.mq-track{display:flex;gap:36px;animation:mq 28s linear infinite;width:max-content}
+.mq-track:hover{animation-play-state:paused}
+.mq-item{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;display:flex;align-items:center;gap:14px}
+.mq-sep{color:var(--sap2);opacity:.5}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{padding:96px 0;position:relative}
+.wrap{max-width:1180px;margin:0 auto;padding:0 44px}
+.stag{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sap2);display:block;margin-bottom:14px}
+h2{font-family:'Syne',sans-serif;font-size:clamp(34px,4.5vw,56px);font-weight:800;line-height:1.06;letter-spacing:-.02em}
 
 /* STATS */
-#stats{background:var(--concrete);border-top:1px solid var(--glass-b);border-bottom:1px solid var(--glass-b);padding:60px 0}
-.stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
-.stat-item{padding:36px 24px;text-align:center;border-right:1px solid var(--glass-b);position:relative;overflow:hidden;transition:all .4s}
+#stats{background:var(--night2);border-top:1px solid var(--w-border);border-bottom:1px solid var(--w-border);padding:52px 0}
+.stats-g{display:grid;grid-template-columns:repeat(5,1fr)}
+.stat-item{padding:32px 20px;text-align:center;border-right:1px solid var(--w-border);position:relative;transition:background .3s}
 .stat-item:last-child{border-right:none}
-.stat-item::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:2px;background:var(--sap-bright);transition:width .4s}
-.stat-item:hover::after{width:80%}
-.stat-item:hover{background:var(--sap-dim)}
-.stat-number{font-family:'Syne',sans-serif;font-size:44px;font-weight:800;color:var(--sap-light);line-height:1;margin-bottom:8px}
-.stat-label{font-size:12px;color:var(--muted);font-weight:500;letter-spacing:.05em}
+.stat-item::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:2px;background:var(--sap2);transition:width .4s}
+.stat-item:hover{background:rgba(35,85,214,.07)}
+.stat-item:hover::after{width:70%}
+.stat-num{font-family:'Syne',sans-serif;font-size:42px;font-weight:800;color:var(--sap3);line-height:1;margin-bottom:7px}
+.stat-lbl{font-size:11px;color:var(--muted);font-weight:500;letter-spacing:.06em}
 
 /* ABOUT */
-#about{background:var(--deep)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.about-visual{position:relative;height:500px;border-radius:24px;overflow:hidden;border:1px solid var(--glass-b)}
-.about-visual canvas{width:100%;height:100%;display:block}
-.about-text .section-tag{display:block}
-.about-text h2{margin-bottom:24px}
-.about-text p{color:var(--muted);line-height:1.8;margin-bottom:20px;font-size:16px}
-.about-features{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:32px}
-.feature-pill{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--glass);border:1px solid var(--glass-b);border-radius:12px;font-size:13px;font-weight:500;transition:all .3s}
-.feature-pill:hover{background:var(--sap-dim);border-color:var(--sap-border);transform:translateX(4px)}
+#about{background:var(--night)}
+.about-g{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.about-vis{position:relative;height:480px;border-radius:20px;overflow:hidden;border:1px solid var(--w-border);transition:transform .3s ease;will-change:transform}
+.about-vis img{width:100%;height:100%;object-fit:cover;filter:brightness(.45) saturate(.7)}
+.about-canvas-ov{position:absolute;inset:0;opacity:.55}
+#about-canvas{width:100%;height:100%;display:block}
+.about-text p{color:var(--muted);line-height:1.82;margin-bottom:18px;font-size:15px}
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px}
+.feat{padding:11px 15px;background:var(--w-dim);border:1px solid var(--w-border);border-radius:10px;font-size:12px;font-weight:500;transition:all .3s}
+.feat:hover{background:rgba(35,85,214,.1);border-color:rgba(79,128,240,.25);transform:translateX(3px)}
 
-/* SERVICES / SPOTLIGHT */
-#services{background:var(--concrete)}
-.services-header{text-align:center;margin-bottom:64px}
-.services-header p{color:var(--muted);max-width:500px;margin:16px auto 0}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.spotlight-card{position:relative;padding:36px 28px;background:var(--steel);border:1px solid var(--glass-b);border-radius:20px;overflow:hidden;cursor:none;transition:transform .4s cubic-bezier(.34,1.56,.64,1),border-color .3s}
-.spotlight-card::before{content:'';position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.12) 0%,transparent 70%);transform:translate(-50%,-50%);top:var(--mouse-y,50%);left:var(--mouse-x,50%);opacity:0;transition:opacity .3s;pointer-events:none}
-.spotlight-card:hover::before{opacity:1}
-.spotlight-card:hover{transform:translateY(-8px);border-color:var(--sap-border)}
-.card-icon{width:52px;height:52px;background:var(--sap-dim);border:1px solid var(--sap-border);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:20px}
-.spotlight-card h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:10px}
-.spotlight-card p{color:var(--muted);font-size:14px;line-height:1.7;margin-bottom:18px}
-.card-tags{display:flex;flex-wrap:wrap;gap:8px}
-.card-tag{padding:3px 10px;background:var(--glass);border:1px solid var(--glass-b);border-radius:999px;font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.04em}
-.spotlight-card.large{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
-.large-visual{height:200px;background:var(--glass);border:1px solid var(--glass-b);border-radius:14px;overflow:hidden;position:relative}
-.large-visual img{width:100%;height:100%;object-fit:cover;opacity:.6;filter:saturate(.6) brightness(.8)}
-.large-visual::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--sap-dim),transparent)}
+/* SERVICES */
+#services{background:var(--night2)}
+.srv-head{text-align:center;margin-bottom:56px}
+.srv-head p{color:var(--muted);max-width:480px;margin:14px auto 0;font-size:15px}
+.srv-g{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.scard{position:relative;padding:32px 26px;background:var(--night3);border:1px solid var(--w-border);border-radius:18px;overflow:hidden;cursor:none;transition:transform .4s cubic-bezier(.34,1.56,.64,1),border-color .3s}
+.scard::before{content:'';position:absolute;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(35,85,214,.12),transparent 70%);top:var(--my,50%);left:var(--mx,50%);transform:translate(-50%,-50%);opacity:0;transition:opacity .3s;pointer-events:none}
+.scard:hover::before{opacity:1}
+.scard:hover{transform:translateY(-7px);border-color:rgba(79,128,240,.28)}
+.scard-img{width:100%;height:140px;object-fit:cover;border-radius:10px;margin-bottom:18px;filter:brightness(.6) saturate(.7);transition:filter .4s}
+.scard:hover .scard-img{filter:brightness(.75) saturate(.85)}
+.scard h3{font-family:'Syne',sans-serif;font-size:19px;font-weight:700;margin-bottom:9px}
+.scard p{color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:16px}
+.stags{display:flex;flex-wrap:wrap;gap:6px}
+.stag2{padding:3px 9px;background:var(--w-dim);border:1px solid var(--w-border);border-radius:999px;font-size:10px;font-weight:600;color:var(--muted);letter-spacing:.05em}
+.scard.wide{grid-column:span 2;display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:center}
+.scard.wide .scard-img{height:100%;margin-bottom:0;border-radius:10px}
 
 /* PROJECTS */
-#projects{background:var(--deep);overflow:hidden}
-.projects-header{padding:0 48px;max-width:1200px;margin:0 auto 48px;display:flex;align-items:flex-end;justify-content:space-between}
-.projects-header p{color:var(--muted);max-width:400px}
-.scroll-hint-arrow{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:13px}
-
-/* Circular project display */
-.projects-circular-wrap{position:relative;width:100%;height:600px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.projects-orbit{position:relative;width:520px;height:520px;flex-shrink:0}
-.orbit-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:140px;height:140px;background:var(--steel);border:2px solid var(--sap-border);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:10;box-shadow:0 0 40px rgba(59,130,246,.2)}
-.orbit-center .oc-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--sap-bright)}
-.orbit-center .oc-count{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--white)}
-.orbit-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;border:1px dashed rgba(59,130,246,.15);border-radius:50%;animation:orbit-spin 40s linear infinite}
-.project-node{position:absolute;top:50%;left:50%;transform-origin:0 0;cursor:none}
-.project-node-card{width:180px;height:220px;border-radius:16px;overflow:hidden;background:var(--steel2);border:1px solid var(--glass-b);transform:translate(-50%,-50%);transition:all .4s cubic-bezier(.34,1.56,.64,1);position:relative}
-.project-node-card:hover{border-color:var(--sap-border);box-shadow:0 8px 32px rgba(59,130,246,.2);transform:translate(-50%,-50%) scale(1.08)}
-.project-node-card.active-node{border-color:var(--sap-bright);box-shadow:0 0 24px var(--sap-glow);transform:translate(-50%,-50%) scale(1.12)}
-.project-node-img{width:100%;height:130px;object-fit:cover;filter:saturate(.7) brightness(.7);transition:all .4s}
-.project-node-card:hover .project-node-img,.project-node-card.active-node .project-node-img{filter:saturate(.9) brightness(.85)}
-.node-overlay{position:absolute;inset:0;top:auto;bottom:0;padding:12px;background:linear-gradient(0deg,rgba(5,8,15,.95) 0%,transparent 100%)}
-.node-type{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sap-bright)}
-.node-name{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;line-height:1.3;color:var(--white)}
-@keyframes orbit-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
-
-/* Project detail panel */
-.project-detail-panel{position:absolute;right:0;top:50%;transform:translateY(-50%);width:320px;padding:32px;background:var(--steel);border:1px solid var(--sap-border);border-radius:20px;backdrop-filter:blur(16px)}
-.pdp-type{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sap-bright);margin-bottom:8px}
-.pdp-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;margin-bottom:12px;line-height:1.2}
-.pdp-meta{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
-.pdp-meta-row{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
-.pdp-tag{display:inline-block;padding:4px 12px;background:var(--sap-dim);border:1px solid var(--sap-border);border-radius:999px;font-size:11px;font-weight:600;color:var(--sap-light);margin-top:4px}
-.scroll-instruct{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);font-size:12px;color:var(--muted);letter-spacing:.06em;text-align:center;pointer-events:none}
+#projects{background:var(--night);overflow:visible}
+.proj-head{padding:0 44px;max-width:1180px;margin:0 auto 44px;display:flex;align-items:flex-end;justify-content:space-between}
+.proj-head p{color:var(--muted);font-size:14px}
+.proj-hint{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px}
+/* Orbit */
+.orbit-wrap{position:relative;height:520px;display:flex;align-items:center;justify-content:center;overflow:visible}
+.orbit-zone{position:relative;width:600px;height:460px;overflow:visible}
+.orbit-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:300px;background:radial-gradient(circle,rgba(35,85,214,.15),transparent 70%);border-radius:50%;pointer-events:none}
+.orbit-ring-svg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+.ocard{position:absolute;top:50%;left:50%;width:190px;border-radius:14px;overflow:hidden;background:var(--night2);border:1px solid var(--w-border);transition:all .55s cubic-bezier(.25,.46,.45,.94);cursor:pointer}
+.ocard-img{width:100%;height:120px;object-fit:cover;display:block;filter:brightness(.6) saturate(.65);transition:filter .4s}
+.ocard:hover .ocard-img,.ocard.active .ocard-img{filter:brightness(.8) saturate(.85)}
+.ocard-body{padding:10px 12px 12px}
+.ocard-type{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sap2);margin-bottom:3px}
+.ocard-name{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;line-height:1.3;color:var(--text)}
+.ocard.active{border-color:var(--sap2);box-shadow:0 0 20px var(--glow2)}
+.orbit-detail{position:absolute;right:0;top:50%;transform:translateY(-50%);width:230px;padding:24px;background:var(--night2);border:1px solid rgba(79,128,240,.25);border-radius:16px}
+.od-type{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sap2);margin-bottom:6px}
+.od-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;margin-bottom:12px;line-height:1.2}
+.od-meta{display:flex;flex-direction:column;gap:6px}
+.od-row{font-size:12px;color:var(--muted)}
+.od-badge{display:inline-block;margin-top:12px;padding:4px 12px;background:rgba(35,85,214,.15);border:1px solid rgba(79,128,240,.25);border-radius:999px;font-size:10px;font-weight:700;color:var(--sap3)}
+.orbit-tip{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--muted);letter-spacing:.06em;pointer-events:none}
 
 /* EQUIPMENT */
-#equipment{background:var(--concrete)}
-.equipment-header{text-align:center;margin-bottom:64px}
-.equipment-header p{color:var(--muted);max-width:480px;margin:16px auto 0}
-
-/* 3D depth carousel - fixed, no skew bug */
-.depth-carousel-wrap{position:relative;width:100%;height:440px;perspective:1400px;overflow:hidden}
-.depth-carousel-track{position:relative;width:100%;height:100%;transform-style:preserve-3d}
-.equip-card{position:absolute;top:50%;left:50%;width:250px;height:320px;border-radius:20px;overflow:hidden;background:var(--steel);border:1px solid var(--glass-b);transform-style:preserve-3d;transition:all .6s cubic-bezier(.34,1.56,.64,1);cursor:none}
-.equip-card-img{width:100%;height:190px;object-fit:cover;display:block;filter:saturate(.6) brightness(.7);transition:filter .4s}
-.equip-card:hover .equip-card-img{filter:saturate(.9) brightness(.85)}
-.equip-card-body{padding:16px}
-.equip-card-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:4px;color:var(--white)}
-.equip-card-desc{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:10px}
-.equip-badge{display:inline-block;padding:3px 10px;background:var(--sap-dim);border:1px solid var(--sap-border);border-radius:999px;font-size:11px;font-weight:600;color:var(--sap-light)}
-.carousel-controls{display:flex;justify-content:center;gap:16px;margin-top:40px}
-.carousel-btn{width:48px;height:48px;border:1px solid var(--glass-b);border-radius:50%;background:var(--glass);backdrop-filter:blur(12px);color:var(--text);font-size:18px;cursor:none;display:flex;align-items:center;justify-content:center;transition:all .3s}
-.carousel-btn:hover{background:var(--sap-dim);border-color:var(--sap-border);color:var(--sap-light);transform:scale(1.1)}
+#equipment{background:var(--night2)}
+.eq-head{text-align:center;margin-bottom:56px}
+.eq-head p{color:var(--muted);max-width:460px;margin:14px auto 0;font-size:15px}
+.depth-wrap{position:relative;height:420px;overflow:hidden}
+.depth-track{position:relative;width:100%;height:100%}
+.ecard{position:absolute;top:50%;left:50%;width:240px;border-radius:18px;overflow:hidden;background:var(--night3);border:1px solid var(--w-border);transition:all .55s cubic-bezier(.25,.46,.45,.94);cursor:pointer}
+.ecard img{width:100%;height:170px;object-fit:cover;display:block;filter:brightness(.6) saturate(.6);transition:filter .4s}
+.ecard:hover img,.ecard.front img{filter:brightness(.8) saturate(.85)}
+.ecard-body{padding:14px 16px}
+.ecard-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px}
+.ecard-desc{font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:9px}
+.ecard-badge{display:inline-block;padding:3px 10px;background:rgba(35,85,214,.15);border:1px solid rgba(79,128,240,.2);border-radius:999px;font-size:10px;font-weight:600;color:var(--sap3)}
+.car-btns{display:flex;justify-content:center;gap:14px;margin-top:32px}
+.car-btn{width:46px;height:46px;border:1px solid var(--w-border);border-radius:50%;background:var(--w-dim);backdrop-filter:blur(10px);color:var(--text);font-size:16px;cursor:none;display:flex;align-items:center;justify-content:center;transition:all .3s}
+.car-btn:hover{background:rgba(35,85,214,.15);border-color:rgba(79,128,240,.3);color:var(--sap3);transform:scale(1.1)}
 
 /* TIMELINE */
-#timeline{background:var(--deep)}
-.timeline-header{text-align:center;margin-bottom:64px}
-.timeline-track{position:relative;max-width:800px;margin:0 auto}
-.timeline-line{position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--sapphire),transparent);transform:translateX(-50%)}
-.timeline-item{display:grid;grid-template-columns:1fr 40px 1fr;gap:24px;align-items:center;margin-bottom:48px;opacity:0;transform:translateY(30px);transition:all .6s}
-.timeline-item.visible{opacity:1;transform:translateY(0)}
-.timeline-dot{grid-column:2;width:40px;height:40px;border-radius:50%;background:var(--sap-dim);border:2px solid var(--sap-bright);display:flex;align-items:center;justify-content:center;justify-self:center;position:relative;z-index:1;box-shadow:0 0 20px var(--sap-glow);font-size:15px}
-.timeline-content{padding:20px 24px;background:var(--glass);border:1px solid var(--glass-b);border-radius:16px;backdrop-filter:blur(12px)}
-.timeline-year{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--sap-bright);margin-bottom:4px}
-.timeline-content h3{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:4px}
-.timeline-content p{font-size:13px;color:var(--muted)}
-.timeline-empty{visibility:hidden}
+#timeline{background:var(--night)}
+.tl-head{text-align:center;margin-bottom:56px}
+.tl-track{position:relative;max-width:780px;margin:0 auto}
+.tl-line{position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--sap),transparent);transform:translateX(-50%)}
+.tl-item{display:grid;grid-template-columns:1fr 40px 1fr;gap:22px;align-items:center;margin-bottom:44px;opacity:0;transform:translateY(28px);transition:opacity .6s,transform .6s}
+.tl-item.vis{opacity:1;transform:translateY(0)}
+.tl-dot{grid-column:2;width:38px;height:38px;border-radius:50%;background:rgba(35,85,214,.15);border:2px solid var(--sap2);display:flex;align-items:center;justify-content:center;justify-self:center;position:relative;z-index:1;box-shadow:0 0 16px var(--glow);font-size:14px;font-family:'Syne',sans-serif;font-weight:800;color:var(--sap3)}
+.tl-c{padding:18px 22px;background:var(--w-dim);border:1px solid var(--w-border);border-radius:14px}
+.tl-yr{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--sap2);margin-bottom:4px}
+.tl-c h3{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:4px}
+.tl-c p{font-size:12px;color:var(--muted)}
+.tl-empty{visibility:hidden}
 
 /* TESTIMONIALS */
-#testimonials{background:var(--concrete)}
-.testimonials-header{text-align:center;margin-bottom:64px}
-.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.testimonial-card{padding:32px;background:var(--glass);border:1px solid var(--glass-b);border-radius:20px;backdrop-filter:blur(12px);transition:all .4s}
-.testimonial-card:hover{background:var(--glass-h);transform:translateY(-6px);border-color:var(--sap-border)}
-.testimonial-quote{font-size:40px;color:var(--sap-bright);font-family:Georgia,serif;line-height:1;margin-bottom:16px}
-.testimonial-text{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:24px;font-style:italic}
-.testimonial-author{display:flex;align-items:center;gap:12px}
-.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--sap-dim);border:2px solid var(--sap-border);display:flex;align-items:center;justify-content:center;font-size:18px}
-.author-role{font-size:13px;color:var(--sap-light);font-weight:600}
-.stars{color:var(--sap-light);font-size:13px;margin-bottom:6px;letter-spacing:2px}
+#testimonials{background:var(--night2)}
+.test-head{text-align:center;margin-bottom:56px}
+.test-g{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tcard{padding:28px;background:var(--w-dim);border:1px solid var(--w-border);border-radius:18px;transition:all .4s}
+.tcard:hover{background:rgba(35,85,214,.07);transform:translateY(-5px);border-color:rgba(79,128,240,.22)}
+.tq{font-size:36px;color:var(--sap2);font-family:Georgia,serif;line-height:1;margin-bottom:14px}
+.tt{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:20px;font-style:italic}
+.ta{display:flex;align-items:center;gap:10px}
+.ta-av{width:40px;height:40px;border-radius:50%;background:rgba(35,85,214,.15);border:1.5px solid rgba(79,128,240,.3);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:14px;color:var(--sap3)}
+.ta-role{font-size:12px;color:var(--sap3);font-weight:600}
+.stars{color:var(--sap3);font-size:12px;letter-spacing:2px;margin-bottom:3px}
 
 /* CONTACT */
-#contact{background:var(--deep)}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-.contact-info h2{margin-bottom:20px}
-.contact-info p{color:var(--muted);line-height:1.8;margin-bottom:40px}
-.contact-details{display:flex;flex-direction:column;gap:14px}
-.contact-detail{display:flex;align-items:flex-start;gap:16px;padding:18px;background:var(--glass);border:1px solid var(--glass-b);border-radius:16px;transition:all .3s}
-.contact-detail:hover{background:var(--sap-dim);border-color:var(--sap-border);transform:translateX(4px)}
-.detail-icon{width:40px;height:40px;flex-shrink:0;background:var(--sap-dim);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
-.detail-label{font-size:11px;font-weight:600;color:var(--sap-bright);letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px}
-.detail-value{font-size:14px;color:var(--text)}
-.contact-form{background:var(--glass);border:1px solid var(--glass-b);border-radius:20px;padding:36px;backdrop-filter:blur(16px)}
-.contact-form h3{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;margin-bottom:28px}
-.form-group{margin-bottom:18px}
-.form-group label{display:block;font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:13px 15px;background:var(--deep);border:1px solid var(--glass-b);border-radius:12px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;transition:all .3s;outline:none;appearance:none;-webkit-appearance:none}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--sap-border);box-shadow:0 0 0 3px rgba(59,130,246,.1)}
-.form-group textarea{height:110px;resize:vertical}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+#contact{background:var(--night)}
+.con-g{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.con-info p{color:var(--muted);line-height:1.82;margin-bottom:36px;font-size:15px}
+.con-dets{display:flex;flex-direction:column;gap:12px}
+.con-det{display:flex;align-items:flex-start;gap:14px;padding:16px;background:var(--w-dim);border:1px solid var(--w-border);border-radius:14px;transition:all .3s}
+.con-det:hover{background:rgba(35,85,214,.08);border-color:rgba(79,128,240,.22);transform:translateX(3px)}
+.con-ico{width:38px;height:38px;flex-shrink:0;background:rgba(35,85,214,.15);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px}
+.det-lbl{font-size:10px;font-weight:700;color:var(--sap2);letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px}
+.det-val{font-size:13px;color:var(--text)}
+.con-form{background:var(--w-dim);border:1px solid var(--w-border);border-radius:18px;padding:32px;backdrop-filter:blur(14px)}
+.con-form h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:24px}
+.fg{margin-bottom:16px}
+.fg label{display:block;font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}
+.fg input,.fg select,.fg textarea{width:100%;padding:12px 14px;background:var(--night);border:1px solid var(--w-border);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;transition:border-color .3s,box-shadow .3s;outline:none;appearance:none;-webkit-appearance:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:rgba(79,128,240,.45);box-shadow:0 0 0 3px rgba(35,85,214,.1)}
+.fg textarea{height:100px;resize:vertical}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 
 /* FOOTER */
-footer{background:var(--concrete);border-top:1px solid var(--glass-b);padding:64px 0 32px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
-.footer-brand .logo-text{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--sap-light);margin-bottom:6px}
-.footer-brand .logo-sub{font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
-.footer-brand p{font-size:14px;color:var(--muted);line-height:1.7;max-width:280px}
-.footer-col h4{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:18px;color:var(--text)}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.footer-col ul li a{font-size:14px;color:var(--muted);text-decoration:none;transition:color .3s}
-.footer-col ul li a:hover{color:var(--sap-light)}
-.footer-bottom{padding-top:28px;border-top:1px solid var(--glass-b);display:flex;justify-content:space-between;align-items:center}
-.footer-bottom p{font-size:13px;color:var(--muted)}
-.footer-certifications{display:flex;gap:10px;flex-wrap:wrap}
-.cert-badge{padding:4px 12px;background:var(--glass);border:1px solid var(--glass-b);border-radius:999px;font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.05em}
+footer{background:var(--night2);border-top:1px solid var(--w-border);padding:56px 0 28px}
+.ft-g{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px}
+.ft-brand .logo{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;color:var(--sap3)}
+.ft-brand .sub{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;margin-top:4px}
+.ft-brand p{font-size:13px;color:var(--muted);line-height:1.7;max-width:260px}
+.ft-col h4{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:16px}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.ft-col ul li a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .3s}
+.ft-col ul li a:hover{color:var(--sap3)}
+.ft-bot{padding-top:24px;border-top:1px solid var(--w-border);display:flex;justify-content:space-between;align-items:center}
+.ft-bot p{font-size:12px;color:var(--muted)}
+.ft-certs{display:flex;gap:8px}
+.ft-cert{padding:3px 10px;background:var(--w-dim);border:1px solid var(--w-border);border-radius:999px;font-size:10px;font-weight:600;color:var(--muted);letter-spacing:.05em}
 
-/* REVEAL ANIMATIONS */
-.reveal{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94),transform .7s}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-delay-1{transition-delay:.1s}
-.reveal-delay-2{transition-delay:.2s}
-.reveal-delay-3{transition-delay:.3s}
-.reveal-delay-4{transition-delay:.4s}
+/* REVEAL */
+.rev{opacity:0;transform:translateY(32px);transition:opacity .65s cubic-bezier(.25,.46,.45,.94),transform .65s}
+.rev.vis{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
 
-/* NOISE TEXTURE */
-body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:.02;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px;pointer-events:none}
+/* NOISE */
+body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:.018;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px;pointer-events:none}
 
-/* MOBILE */
 @media(max-width:768px){
-  nav{top:12px;padding:8px 14px;max-width:calc(100vw - 32px)}
-  .nav-items .nav-item:not(.nav-cta){display:none}
-  .stats-grid{grid-template-columns:repeat(3,1fr)}
-  .about-grid,.contact-grid,.footer-grid{grid-template-columns:1fr}
-  .services-grid{grid-template-columns:1fr}
-  .spotlight-card.large{grid-column:span 1;grid-template-columns:1fr}
-  .testimonials-grid{grid-template-columns:1fr}
-  .projects-circular-wrap{height:400px}
-  .project-detail-panel{display:none}
-  .container{padding:0 20px}
-  .projects-header{flex-direction:column;align-items:flex-start;gap:12px;padding:0 20px}
+  nav{max-width:calc(100vw - 24px);padding:8px 12px}
+  .nav-items .nav-item{display:none}
+  .stats-g{grid-template-columns:repeat(3,1fr)}
+  .stat-item:nth-child(n+4){border-top:1px solid var(--w-border)}
+  .about-g,.con-g,.ft-g{grid-template-columns:1fr}
+  .srv-g{grid-template-columns:1fr}
+  .scard.wide{grid-column:span 1;grid-template-columns:1fr}
+  .scard.wide .scard-img{height:140px;margin-bottom:14px}
+  .test-g{grid-template-columns:1fr}
+  .orbit-wrap{height:380px}
+  .orbit-detail{display:none}
+  .orbit-zone{width:100%;max-width:400px}
+  .wrap{padding:0 20px}
+  .proj-head{flex-direction:column;align-items:flex-start;gap:10px;padding:0 20px}
 }
-
 </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
-<div id="progress-bar"></div>
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
+<div id="pgbar"></div>
+<div id="cur"></div>
+<div id="cur-r"></div>
 
-<!-- NAV DOCK -->
+<!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo">HIGHRANGE</a>
   <div class="nav-items">
@@ -323,102 +284,80 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:.02;background-
 <!-- HERO -->
 <section id="hero">
   <canvas id="hero-canvas"></canvas>
-  <div class="hero-overlay"></div>
+  <div class="hero-ov"></div>
   <div class="hero-content">
-    <div class="hero-badge">
-      <span class="dot"></span>
-      Adimali, Idukki · Kerala · Est. 2019
-    </div>
+    <div class="hero-loc">Adimali, Idukki &middot; Kerala &middot; Est. 2019</div>
     <h1 class="hero-title">
-      <span class="line-1">We Build What</span>
-      <span class="line-2">Connects Kerala</span>
+      <span class="l1">We Build What</span>
+      <span class="l2">Connects Kerala</span>
     </h1>
-    <p class="hero-sub">
-      Government-certified infrastructure contractor specialising in PWD &amp; PMGSY roads, mountain bridges, and civil engineering across Kerala's high-range terrain.
-    </p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn-primary">
-        View Projects
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="#contact" class="btn-specular"><span>Get In Touch</span></a>
+    <p class="hero-sub">Government-certified infrastructure contractor — PWD &amp; PMGSY roads, mountain bridges, and civil engineering across Kerala's high-range terrain.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-a">View Projects <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#contact" class="btn-spec"><span>Get In Touch</span></a>
     </div>
   </div>
-  <div class="hero-scroll-hint">
-    <div class="scroll-line"></div>
+  <div class="hero-scroll">
+    <div class="scroll-ln"></div>
     <span>Scroll</span>
   </div>
 </section>
 
 <!-- MARQUEE -->
-<div class="marquee-section">
-  <div class="marquee-track">
-    <div class="marquee-item">PWD Approved <span class="sep">✦</span></div>
-    <div class="marquee-item">PMGSY Certified <span class="sep">✦</span></div>
-    <div class="marquee-item">Bridge Construction <span class="sep">✦</span></div>
-    <div class="marquee-item">Mountain Road Specialists <span class="sep">✦</span></div>
-    <div class="marquee-item">Culvert Works <span class="sep">✦</span></div>
-    <div class="marquee-item">Idukki · Ernakulam · Thrissur <span class="sep">✦</span></div>
-    <div class="marquee-item">7+ Years Experience <span class="sep">✦</span></div>
-    <div class="marquee-item">ISO Grade Equipment <span class="sep">✦</span></div>
-    <div class="marquee-item">PWD Approved <span class="sep">✦</span></div>
-    <div class="marquee-item">PMGSY Certified <span class="sep">✦</span></div>
-    <div class="marquee-item">Bridge Construction <span class="sep">✦</span></div>
-    <div class="marquee-item">Mountain Road Specialists <span class="sep">✦</span></div>
-    <div class="marquee-item">Culvert Works <span class="sep">✦</span></div>
-    <div class="marquee-item">Idukki · Ernakulam · Thrissur <span class="sep">✦</span></div>
-    <div class="marquee-item">7+ Years Experience <span class="sep">✦</span></div>
-    <div class="marquee-item">ISO Grade Equipment <span class="sep">✦</span></div>
+<div class="mq">
+  <div class="mq-track">
+    <span class="mq-item">PWD Approved <span class="mq-sep">&#10022;</span></span>
+    <span class="mq-item">PMGSY Certified <span class="mq-sep">&#10022;</span></span>
+    <span class="mq-item">Bridge Construction <span class="mq-sep">&#10022;</span></span>
+    <span class="mq-item">Mountain Road Specialists <span class="mq-sep">&#10022;</span></span>
+    <span class="mq-item">Culvert Works <span class="mq-sep">&#10022;</span></span>
+    <span class="mq-item">Idukki &middot; Ernakulam &middot; Thrissur <span class="mq-sep">&#10022;</span></span>
+    <span class="mq-item">7+ Years Experience <span class="mq-sep">&#10022;</span></span>
+    <span class="mq-item">30+ Machines Owned <span class="mq-sep">&#10022;</span></span>
+    <span class="mq-item">PWD Approved <span class="mq-sep">&#10022;</span></span>
+    <span class="mq-item">PMGSY Certified <span class="mq-sep">&#10022;</span></span>
+    <span class="mq-item">Bridge Construction <span class="mq-sep">&#10022;</span></span>
+    <span class="mq-item">Mountain Road Specialists <span class="mq-sep">&#10022;</span></span>
+    <span class="mq-item">Culvert Works <span class="mq-sep">&#10022;</span></span>
+    <span class="mq-item">Idukki &middot; Ernakulam &middot; Thrissur <span class="mq-sep">&#10022;</span></span>
+    <span class="mq-item">7+ Years Experience <span class="mq-sep">&#10022;</span></span>
+    <span class="mq-item">30+ Machines Owned <span class="mq-sep">&#10022;</span></span>
   </div>
 </div>
 
 <!-- STATS -->
 <section id="stats">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat-item reveal">
-        <div class="stat-number" data-target="10" data-suffix="+">0</div>
-        <div class="stat-label">Satisfied Clients</div>
-      </div>
-      <div class="stat-item reveal reveal-delay-1">
-        <div class="stat-number" data-target="25" data-suffix="+">0</div>
-        <div class="stat-label">Works Completed</div>
-      </div>
-      <div class="stat-item reveal reveal-delay-2">
-        <div class="stat-number" data-target="100" data-suffix="+">0</div>
-        <div class="stat-label">Employees</div>
-      </div>
-      <div class="stat-item reveal reveal-delay-3">
-        <div class="stat-number" data-target="30" data-suffix="+">0</div>
-        <div class="stat-label">Machines</div>
-      </div>
-      <div class="stat-item reveal reveal-delay-4">
-        <div class="stat-number" data-prefix="&#8377;" data-target="100" data-suffix="+ Cr">0</div>
-        <div class="stat-label">Project Value</div>
-      </div>
+  <div class="wrap">
+    <div class="stats-g">
+      <div class="stat-item rev"><div class="stat-num" data-t="10" data-s="+">0</div><div class="stat-lbl">Clients</div></div>
+      <div class="stat-item rev d1"><div class="stat-num" data-t="25" data-s="+">0</div><div class="stat-lbl">Works Completed</div></div>
+      <div class="stat-item rev d2"><div class="stat-num" data-t="100" data-s="+">0</div><div class="stat-lbl">Employees</div></div>
+      <div class="stat-item rev d3"><div class="stat-num" data-t="30" data-s="+">0</div><div class="stat-lbl">Machines</div></div>
+      <div class="stat-item rev d4"><div class="stat-num" data-t="100" data-p="&#8377;" data-s="+ Cr">0</div><div class="stat-lbl">Project Value</div></div>
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-visual reveal">
-        <canvas id="about-canvas"></canvas>
+  <div class="wrap">
+    <div class="about-g">
+      <div class="about-vis rev">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=600&fit=crop&auto=format" alt="Construction site"/>
+        <div class="about-canvas-ov"><canvas id="about-canvas"></canvas></div>
       </div>
       <div class="about-text">
-        <span class="section-tag reveal">About Us</span>
-        <h2 class="reveal reveal-delay-1">Built on the<br>High Ranges of Kerala</h2>
-        <p class="reveal reveal-delay-2">Rooted in the misty hills of Adimali, Idukki, Highrange Infrastructure LLP has been quietly shaping Kerala's connectivity since 2019. What started as a vision to serve India's most challenging terrains has grown into a trusted government contractor.</p>
-        <p class="reveal reveal-delay-3">We operate where others don't dare — mountain passes, monsoon-flooded valley roads, and river-crossing bridges that become lifelines for remote communities. Every project we take is a responsibility to the people who depend on it.</p>
-        <div class="about-features reveal reveal-delay-4">
-          <div class="feature-pill">PWD Registered</div>
-          <div class="feature-pill">PMGSY Certified</div>
-          <div class="feature-pill">High-Range Specialists</div>
-          <div class="feature-pill">Bridge Experts</div>
-          <div class="feature-pill">Heavy Fleet Owned</div>
-          <div class="feature-pill">ISO Compliant</div>
+        <span class="stag rev">About Us</span>
+        <h2 class="rev d1">Built on the<br>High Ranges of Kerala</h2>
+        <p class="rev d2">Rooted in the misty hills of Adimali, Idukki, Highrange Infrastructure LLP has been shaping Kerala's connectivity since 2019. What started as a vision to serve India's most challenging terrains has grown into a trusted government contractor.</p>
+        <p class="rev d3">We operate where others don't dare — mountain passes, monsoon-flooded valley roads, and river-crossing bridges that become lifelines for remote communities. Every project is a responsibility to the people who depend on it.</p>
+        <div class="feats rev d4">
+          <div class="feat">PWD Registered</div>
+          <div class="feat">PMGSY Certified</div>
+          <div class="feat">High-Range Specialists</div>
+          <div class="feat">Bridge Engineering</div>
+          <div class="feat">Heavy Fleet — 30+ Units</div>
+          <div class="feat">ISO Compliant Works</div>
         </div>
       </div>
     </div>
@@ -427,402 +366,189 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:.02;background-
 
 <!-- SERVICES -->
 <section id="services">
-  <div class="container">
-    <div class="services-header">
-      <span class="section-tag reveal">What We Do</span>
-      <h2 class="reveal reveal-delay-1">Infrastructure That<br>Stands the Test of Time</h2>
-      <p class="reveal reveal-delay-2">From mountain passes to river crossings, our capabilities span the full spectrum of civil infrastructure.</p>
+  <div class="wrap">
+    <div class="srv-head">
+      <span class="stag rev">What We Do</span>
+      <h2 class="rev d1">Infrastructure That<br>Stands the Test of Time</h2>
+      <p class="rev d2">From mountain passes to river crossings — full spectrum civil infrastructure.</p>
     </div>
-    <div class="services-grid">
-      <div class="spotlight-card large reveal">
+    <div class="srv-g">
+      <div class="scard wide rev">
+        <img class="scard-img" src="https://images.unsplash.com/photo-1566192091742-75b3b90a6ab0?w=600&h=300&fit=crop&auto=format" alt="Road construction"/>
         <div>
-          <div class="card-icon" style="font-size:0;background:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=52&h=52&fit=crop') center/cover;border:1px solid var(--sap-border)"></div>
           <h3>Road Construction</h3>
-          <p>PMGSY &amp; PWD grade road works across Kerala's high-range districts. Bituminous surfacing, sub-base, base course, WBM — executed with precision compaction equipment on some of India's steepest terrain.</p>
-          <div class="card-tags">
-            <span class="card-tag">PMGSY Roads</span>
-            <span class="card-tag">PWD Works</span>
-            <span class="card-tag">BT Surfacing</span>
-            <span class="card-tag">Earthwork</span>
-          </div>
-        </div>
-        <div class="large-visual">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=300&fit=crop&auto=format" alt="Road construction" loading="lazy"/>
+          <p>PMGSY &amp; PWD grade road works across Kerala's high-range districts. Bituminous surfacing, sub-base, base course, WBM — executed with precision on some of India's steepest terrain.</p>
+          <div class="stags"><span class="stag2">PMGSY Roads</span><span class="stag2">PWD Works</span><span class="stag2">BT Surfacing</span><span class="stag2">Earthwork</span></div>
         </div>
       </div>
-
-      <div class="spotlight-card reveal reveal-delay-1">
-        <div class="card-icon" style="font-size:0;background:url('https://images.unsplash.com/photo-1545127398-14699f92334b?w=52&h=52&fit=crop') center/cover;border:1px solid var(--sap-border)"></div>
+      <div class="scard rev d1">
+        <img class="scard-img" src="https://images.unsplash.com/photo-1545127398-14699f92334b?w=600&h=200&fit=crop&auto=format" alt="Bridge"/>
         <h3>Bridge Construction</h3>
-        <p>RCC &amp; prestressed concrete bridges across Kerala's rivers and ravines. Complete from foundation to deck — pile driving, formwork, casting, finishing.</p>
-        <div class="card-tags">
-          <span class="card-tag">RCC Bridges</span><span class="card-tag">Culverts</span><span class="card-tag">Pile Foundation</span>
-        </div>
+        <p>RCC &amp; prestressed concrete bridges across Kerala's rivers and ravines — pile driving, formwork, casting, finishing.</p>
+        <div class="stags"><span class="stag2">RCC Bridges</span><span class="stag2">Culverts</span><span class="stag2">Pile Foundation</span></div>
       </div>
-
-      <div class="spotlight-card reveal reveal-delay-2">
-        <div class="card-icon" style="font-size:0;background:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=52&h=52&fit=crop') center/cover;border:1px solid var(--sap-border)"></div>
+      <div class="scard rev d2">
+        <img class="scard-img" src="https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=600&h=200&fit=crop&auto=format" alt="Drainage works"/>
         <h3>Drainage &amp; Culverts</h3>
-        <p>Cross-drainage works, box culverts, retaining walls. Critical for Kerala's intense monsoon water management across mountain passes.</p>
-        <div class="card-tags">
-          <span class="card-tag">Box Culverts</span><span class="card-tag">Retaining Walls</span><span class="card-tag">Storm Drains</span>
-        </div>
+        <p>Cross-drainage works, box culverts, retaining walls. Critical for Kerala's intense monsoon water management.</p>
+        <div class="stags"><span class="stag2">Box Culverts</span><span class="stag2">Retaining Walls</span><span class="stag2">Storm Drains</span></div>
       </div>
-
-      <div class="spotlight-card reveal reveal-delay-1">
-        <div class="card-icon" style="font-size:0;background:url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=52&h=52&fit=crop') center/cover;border:1px solid var(--sap-border)"></div>
+      <div class="scard rev d1">
+        <img class="scard-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=200&fit=crop&auto=format" alt="Earthwork"/>
         <h3>Earthwork &amp; Grading</h3>
-        <p>Mass excavation, embankment filling, slope protection using our fleet of Hitachi excavators and JCB machines for precision earth moving at scale.</p>
-        <div class="card-tags">
-          <span class="card-tag">Excavation</span><span class="card-tag">Embankment</span><span class="card-tag">Slope Protection</span>
-        </div>
+        <p>Mass excavation, embankment filling, slope protection using Hitachi excavators and JCB machines for precision earth moving.</p>
+        <div class="stags"><span class="stag2">Excavation</span><span class="stag2">Embankment</span><span class="stag2">Slope Protection</span></div>
       </div>
-
-      <div class="spotlight-card reveal reveal-delay-2">
-        <div class="card-icon" style="font-size:0;background:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=52&h=52&fit=crop') center/cover;border:1px solid var(--sap-border)"></div>
-        <h3>Site Development</h3>
-        <p>Site clearing, compound walls, labour quarters, site offices, and temporary infrastructure for major government project sites across Idukki and Ernakulam districts.</p>
-        <div class="card-tags">
-          <span class="card-tag">Site Clearing</span><span class="card-tag">Compound Walls</span><span class="card-tag">Temporary Works</span>
-        </div>
-      </div>
-
-      <div class="spotlight-card large reveal">
-        <div class="large-visual">
-          <img src="https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=600&h=300&fit=crop&auto=format" alt="Civil works" loading="lazy"/>
-        </div>
-        <div>
-          <div class="card-icon" style="font-size:0;background:url('https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=52&h=52&fit=crop') center/cover;border:1px solid var(--sap-border)"></div>
-          <h3>Structural &amp; Civil Works</h3>
-          <p>Full scope civil engineering — RCC structures, compound walls, water tanks, and government-spec buildings as part of road and bridge packages.</p>
-          <div class="card-tags">
-            <span class="card-tag">RCC Structures</span><span class="card-tag">Water Tanks</span><span class="card-tag">Govt. Buildings</span>
-          </div>
-        </div>
+      <div class="scard rev d2">
+        <img class="scard-img" src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=200&fit=crop&auto=format" alt="Structural works"/>
+        <h3>Structural Works</h3>
+        <p>Full scope civil — RCC structures, compound walls, water tanks, and government-spec buildings as part of road and bridge packages.</p>
+        <div class="stags"><span class="stag2">RCC Structures</span><span class="stag2">Water Tanks</span><span class="stag2">Govt. Buildings</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS — CIRCULAR ORBIT -->
+<!-- PROJECTS -->
 <section id="projects">
-  <div class="projects-header">
+  <div class="proj-head">
     <div>
-      <span class="section-tag reveal">Our Work</span>
-      <h2 class="reveal reveal-delay-1">Projects That Move<br>Kerala Forward</h2>
+      <span class="stag rev">Our Work</span>
+      <h2 class="rev d1">Projects That Move<br>Kerala Forward</h2>
     </div>
-    <div class="scroll-hint-arrow reveal">
-      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-      <span>Scroll over to rotate</span>
-    </div>
+    <div class="proj-hint rev">Scroll inside to rotate</div>
   </div>
-
-  <div class="projects-circular-wrap">
-    <div class="projects-orbit">
-      <div class="orbit-ring"></div>
-      <div class="orbit-center">
-        <div class="oc-label">Projects</div>
-        <div class="oc-count">08</div>
+  <div class="orbit-wrap" id="orbit-wrap">
+    <div class="orbit-zone" id="orbit-zone">
+      <div class="orbit-glow"></div>
+      <svg class="orbit-ring-svg" width="460" height="200" viewBox="0 0 460 200">
+        <ellipse cx="230" cy="100" rx="220" ry="90" fill="none" stroke="rgba(79,128,240,0.1)" stroke-width="1" stroke-dasharray="6,8"/>
+      </svg>
+      <div class="ocard" data-i="0">
+        <img class="ocard-img" src="https://images.unsplash.com/photo-1545127398-14699f92334b?w=300&h=180&fit=crop&auto=format" alt="Bridge"/>
+        <div class="ocard-body"><div class="ocard-type">Bridge &middot; PMGSY</div><div class="ocard-name">Periyar Valley Bridge, Idukki</div></div>
       </div>
-
-      <!-- nodes positioned via JS -->
-      <div class="project-node">
-        <div class="project-node-card">
-          <img class="project-node-img" src="https://images.unsplash.com/photo-1545127398-14699f92334b?w=300&h=200&fit=crop&auto=format" alt="Bridge"/>
-          <div class="node-overlay">
-            <div class="node-type">Bridge · PMGSY</div>
-            <div class="node-name">Periyar Valley Bridge</div>
-          </div>
-        </div>
+      <div class="ocard" data-i="1">
+        <img class="ocard-img" src="https://images.unsplash.com/photo-1566192091742-75b3b90a6ab0?w=300&h=180&fit=crop&auto=format" alt="Road"/>
+        <div class="ocard-body"><div class="ocard-type">Road &middot; PWD</div><div class="ocard-name">Adimali&ndash;Munnar Bypass Road</div></div>
       </div>
-      <div class="project-node">
-        <div class="project-node-card">
-          <img class="project-node-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop&auto=format" alt="Road"/>
-          <div class="node-overlay">
-            <div class="node-type">Road · PWD</div>
-            <div class="node-name">Adimali–Munnar Bypass</div>
-          </div>
-        </div>
+      <div class="ocard" data-i="2">
+        <img class="ocard-img" src="https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=300&h=180&fit=crop&auto=format" alt="Culvert"/>
+        <div class="ocard-body"><div class="ocard-type">Culvert &middot; PMGSY</div><div class="ocard-name">Box Culvert Package, Kuttampuzha</div></div>
       </div>
-      <div class="project-node">
-        <div class="project-node-card">
-          <img class="project-node-img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=300&h=200&fit=crop&auto=format" alt="Culvert"/>
-          <div class="node-overlay">
-            <div class="node-type">Culvert · PMGSY</div>
-            <div class="node-name">Kuttampuzha Box Culvert</div>
-          </div>
-        </div>
+      <div class="ocard" data-i="3">
+        <img class="ocard-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=180&fit=crop&auto=format" alt="Earthwork"/>
+        <div class="ocard-body"><div class="ocard-type">Earthwork &middot; PWD</div><div class="ocard-name">NH-183 Embankment Works</div></div>
       </div>
-      <div class="project-node">
-        <div class="project-node-card">
-          <img class="project-node-img" src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=300&h=200&fit=crop&auto=format" alt="Earthwork"/>
-          <div class="node-overlay">
-            <div class="node-type">Earthwork · PWD</div>
-            <div class="node-name">NH-183 Embankment</div>
-          </div>
-        </div>
+      <div class="ocard" data-i="4">
+        <img class="ocard-img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=300&h=180&fit=crop&auto=format" alt="Bridge"/>
+        <div class="ocard-body"><div class="ocard-type">Bridge &middot; PMGSY</div><div class="ocard-name">Kallar River RCC Bridge, Munnar</div></div>
       </div>
-      <div class="project-node">
-        <div class="project-node-card">
-          <img class="project-node-img" src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=300&h=200&fit=crop&auto=format" alt="Bridge"/>
-          <div class="node-overlay">
-            <div class="node-type">Bridge · PMGSY</div>
-            <div class="node-name">Kallar River RCC Bridge</div>
-          </div>
-        </div>
+      <div class="ocard" data-i="5">
+        <img class="ocard-img" src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=300&h=180&fit=crop&auto=format" alt="Road"/>
+        <div class="ocard-body"><div class="ocard-type">Road &middot; PMGSY</div><div class="ocard-name">Valara Connectivity Road Package</div></div>
       </div>
-      <div class="project-node">
-        <div class="project-node-card">
-          <img class="project-node-img" src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=300&h=200&fit=crop&auto=format" alt="Mountain road"/>
-          <div class="node-overlay">
-            <div class="node-type">Road · PMGSY</div>
-            <div class="node-name">Valara Connectivity Road</div>
-          </div>
-        </div>
+      <div class="ocard" data-i="6">
+        <img class="ocard-img" src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=300&h=180&fit=crop&auto=format" alt="Retaining wall"/>
+        <div class="ocard-body"><div class="ocard-type">Retaining Wall &middot; PWD</div><div class="ocard-name">High-Range Slope Protection Works</div></div>
       </div>
-      <div class="project-node">
-        <div class="project-node-card">
-          <img class="project-node-img" src="https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=300&h=200&fit=crop&auto=format" alt="Structure"/>
-          <div class="node-overlay">
-            <div class="node-type">Retaining Wall · PWD</div>
-            <div class="node-name">High-Range Slope Protection</div>
-          </div>
-        </div>
-      </div>
-      <div class="project-node">
-        <div class="project-node-card">
-          <img class="project-node-img" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=300&h=200&fit=crop&auto=format" alt="Civil works"/>
-          <div class="node-overlay">
-            <div class="node-type">Civil · Govt.</div>
-            <div class="node-name">Panchayath Package</div>
-          </div>
-        </div>
+      <div class="ocard" data-i="7">
+        <img class="ocard-img" src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=300&h=180&fit=crop&auto=format" alt="Civil works"/>
+        <div class="ocard-body"><div class="ocard-type">Civil &middot; Govt.</div><div class="ocard-name">Panchayath Infrastructure Package</div></div>
       </div>
     </div>
-
-    <!-- Detail panel -->
-    <div class="project-detail-panel" id="project-detail">
-      <div class="pdp-type">Bridge · PMGSY</div>
-      <div class="pdp-title">Periyar Valley Bridge, Idukki</div>
-      <div class="pdp-meta">
-        <div class="pdp-meta-row" data-loc>Location: Devikulam</div>
-        <div class="pdp-meta-row" data-yr>Completed: 2023</div>
-        <div class="pdp-meta-row" data-val>Contract Value: ₹4.2 Cr</div>
+    <div class="orbit-detail" id="orbit-detail">
+      <div class="od-type" id="od-type">Bridge &middot; PMGSY</div>
+      <div class="od-title" id="od-title">Periyar Valley Bridge, Idukki</div>
+      <div class="od-meta">
+        <div class="od-row" id="od-loc">Location: Devikulam</div>
+        <div class="od-row" id="od-yr">Completed: 2023</div>
+        <div class="od-row" id="od-val">Value: &#8377;4.2 Cr</div>
       </div>
-      <span class="pdp-tag">Government Project</span>
+      <div class="od-badge">Government Project</div>
     </div>
-
-    <div class="scroll-instruct">Scroll inside this area to rotate projects</div>
+    <div class="orbit-tip">Scroll inside this area to rotate</div>
   </div>
 </section>
 
-<!-- EQUIPMENT CAROUSEL -->
+<!-- EQUIPMENT -->
 <section id="equipment">
-  <div class="container">
-    <div class="equipment-header">
-      <span class="section-tag reveal">Heavy Fleet</span>
-      <h2 class="reveal reveal-delay-1">Machines That Mean Business</h2>
-      <p class="reveal reveal-delay-2">Our owned fleet of 30+ machines keeps projects on schedule — no rental delays, no downtime dependencies.</p>
+  <div class="wrap">
+    <div class="eq-head">
+      <span class="stag rev">Heavy Fleet</span>
+      <h2 class="rev d1">Machines That Mean Business</h2>
+      <p class="rev d2">30+ owned units — no rental delays, no downtime dependencies. Deployed wherever the project demands.</p>
     </div>
-
-    <div class="depth-carousel-wrap">
-      <div class="depth-carousel-track">
-        <div class="equip-card">
-          <img class="equip-card-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=250&fit=crop&auto=format" alt="Hitachi Excavator" loading="lazy"/>
-          <div class="equip-card-body">
-            <div class="equip-card-name">Hitachi ZX 200</div>
-            <div class="equip-card-desc">Heavy-duty hydraulic excavator for mountain cuts and river digging</div>
-            <div class="equip-badge">6 Units</div>
-          </div>
-        </div>
-        <div class="equip-card">
-          <img class="equip-card-img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=250&fit=crop&auto=format" alt="Bharatbenz Lorry" loading="lazy"/>
-          <div class="equip-card-body">
-            <div class="equip-card-name">Bharatbenz Tipper</div>
-            <div class="equip-card-desc">12-wheel tipper trucks for material transport on high-range roads</div>
-            <div class="equip-badge">8 Units</div>
-          </div>
-        </div>
-        <div class="equip-card">
-          <img class="equip-card-img" src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=250&fit=crop&auto=format" alt="JCB" loading="lazy"/>
-          <div class="equip-card-body">
-            <div class="equip-card-name">JCB 3DX Backhoe</div>
-            <div class="equip-card-desc">Versatile backhoe loader for mixed excavation and backfilling</div>
-            <div class="equip-badge">4 Units</div>
-          </div>
-        </div>
-        <div class="equip-card">
-          <img class="equip-card-img" src="https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=400&h=250&fit=crop&auto=format" alt="Compactor" loading="lazy"/>
-          <div class="equip-card-body">
-            <div class="equip-card-name">Vibratory Roller</div>
-            <div class="equip-card-desc">Road compaction to PWD specifications for PMGSY surfaces</div>
-            <div class="equip-badge">3 Units</div>
-          </div>
-        </div>
-        <div class="equip-card">
-          <img class="equip-card-img" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=400&h=250&fit=crop&auto=format" alt="Concrete plant" loading="lazy"/>
-          <div class="equip-card-body">
-            <div class="equip-card-name">Batching Plant</div>
-            <div class="equip-card-desc">On-site M30/M35 RCC production for bridge and structure works</div>
-            <div class="equip-badge">2 Units</div>
-          </div>
-        </div>
-        <div class="equip-card">
-          <img class="equip-card-img" src="https://images.unsplash.com/photo-1545127398-14699f92334b?w=400&h=250&fit=crop&auto=format" alt="Tower crane" loading="lazy"/>
-          <div class="equip-card-body">
-            <div class="equip-card-name">Tower Crane</div>
-            <div class="equip-card-desc">40-ton lifting capacity for bridge formwork and structural steel</div>
-            <div class="equip-badge">1 Unit</div>
-          </div>
-        </div>
-        <div class="equip-card">
-          <img class="equip-card-img" src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=400&h=250&fit=crop&auto=format" alt="Asphalt paver" loading="lazy"/>
-          <div class="equip-card-body">
-            <div class="equip-card-name">Asphalt Paver</div>
-            <div class="equip-card-desc">Pneumatic paver for smooth BT surfacing on PMGSY roads</div>
-            <div class="equip-badge">2 Units</div>
-          </div>
-        </div>
-        <div class="equip-card">
-          <img class="equip-card-img" src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=400&h=250&fit=crop&auto=format" alt="Site equipment" loading="lazy"/>
-          <div class="equip-card-body">
-            <div class="equip-card-name">Pile Driver</div>
-            <div class="equip-card-desc">Hydraulic hammer for deep foundation work on bridge abutments</div>
-            <div class="equip-badge">1 Unit</div>
-          </div>
-        </div>
-        <div class="equip-card">
-          <img class="equip-card-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=250&fit=crop&auto=format" alt="Water tanker" loading="lazy"/>
-          <div class="equip-card-body">
-            <div class="equip-card-name">Water Tankers</div>
-            <div class="equip-card-desc">12,000L tankers for road curing and dust suppression</div>
-            <div class="equip-badge">3 Units</div>
-          </div>
-        </div>
-        <div class="equip-card">
-          <img class="equip-card-img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=250&fit=crop&auto=format" alt="Generator" loading="lazy"/>
-          <div class="equip-card-body">
-            <div class="equip-card-name">Generator Sets</div>
-            <div class="equip-card-desc">250–500 KVA DG sets for uninterrupted power at remote sites</div>
-            <div class="equip-badge">4 Units</div>
-          </div>
-        </div>
+    <div class="depth-wrap">
+      <div class="depth-track" id="depth-track">
+        <div class="ecard"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=240&fit=crop&auto=format" alt="Hitachi Excavator" loading="lazy"/><div class="ecard-body"><div class="ecard-name">Hitachi ZX 200</div><div class="ecard-desc">Heavy-duty hydraulic excavator for mountain cuts and river digging</div><div class="ecard-badge">6 Units</div></div></div>
+        <div class="ecard"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=240&fit=crop&auto=format" alt="Tipper" loading="lazy"/><div class="ecard-body"><div class="ecard-name">Bharatbenz Tipper</div><div class="ecard-desc">12-wheel tippers for material transport on high-range roads</div><div class="ecard-badge">8 Units</div></div></div>
+        <div class="ecard"><img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=240&fit=crop&auto=format" alt="JCB" loading="lazy"/><div class="ecard-body"><div class="ecard-name">JCB 3DX Backhoe</div><div class="ecard-desc">Versatile backhoe loader for mixed excavation and backfilling</div><div class="ecard-badge">4 Units</div></div></div>
+        <div class="ecard"><img src="https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=400&h=240&fit=crop&auto=format" alt="Roller" loading="lazy"/><div class="ecard-body"><div class="ecard-name">Vibratory Roller</div><div class="ecard-desc">Road compaction to PWD spec for PMGSY surfaces</div><div class="ecard-badge">3 Units</div></div></div>
+        <div class="ecard"><img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=400&h=240&fit=crop&auto=format" alt="Batching plant" loading="lazy"/><div class="ecard-body"><div class="ecard-name">Batching Plant</div><div class="ecard-desc">On-site M30/M35 RCC production for bridges and structures</div><div class="ecard-badge">2 Units</div></div></div>
+        <div class="ecard"><img src="https://images.unsplash.com/photo-1545127398-14699f92334b?w=400&h=240&fit=crop&auto=format" alt="Crane" loading="lazy"/><div class="ecard-body"><div class="ecard-name">Tower Crane</div><div class="ecard-desc">40-ton lifting for bridge formwork and structural steel</div><div class="ecard-badge">1 Unit</div></div></div>
+        <div class="ecard"><img src="https://images.unsplash.com/photo-1566192091742-75b3b90a6ab0?w=400&h=240&fit=crop&auto=format" alt="Paver" loading="lazy"/><div class="ecard-body"><div class="ecard-name">Asphalt Paver</div><div class="ecard-desc">Pneumatic paver for smooth BT surfacing on PMGSY roads</div><div class="ecard-badge">2 Units</div></div></div>
+        <div class="ecard"><img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=400&h=240&fit=crop&auto=format" alt="Pile driver" loading="lazy"/><div class="ecard-body"><div class="ecard-name">Pile Driver</div><div class="ecard-desc">Hydraulic hammer for deep foundation on bridge abutments</div><div class="ecard-badge">1 Unit</div></div></div>
+        <div class="ecard"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=240&fit=crop&auto=format" alt="Water tanker" loading="lazy"/><div class="ecard-body"><div class="ecard-name">Water Tankers</div><div class="ecard-desc">12,000L tankers for curing and dust suppression</div><div class="ecard-badge">3 Units</div></div></div>
+        <div class="ecard"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=240&fit=crop&auto=format" alt="Generator" loading="lazy"/><div class="ecard-body"><div class="ecard-name">Generator Sets</div><div class="ecard-desc">250&ndash;500 KVA DG sets for remote site power</div><div class="ecard-badge">4 Units</div></div></div>
       </div>
     </div>
-
-    <div class="carousel-controls">
-      <button class="carousel-btn" id="carousel-prev">&#8592;</button>
-      <button class="carousel-btn" id="carousel-next">&#8594;</button>
+    <div class="car-btns">
+      <button class="car-btn" id="car-prev">&#8592;</button>
+      <button class="car-btn" id="car-next">&#8594;</button>
     </div>
   </div>
 </section>
 
 <!-- TIMELINE -->
 <section id="timeline">
-  <div class="container">
-    <div class="timeline-header">
-      <span class="section-tag reveal">Our Journey</span>
-      <h2 class="reveal reveal-delay-1">From Adimali to Across Kerala</h2>
+  <div class="wrap">
+    <div class="tl-head">
+      <span class="stag rev">Our Journey</span>
+      <h2 class="rev d1">From Adimali to Across Kerala</h2>
     </div>
-    <div class="timeline-track">
-      <div class="timeline-line"></div>
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <div class="timeline-year">April 2019</div>
-          <h3>Company Founded</h3>
-          <p>Highrange Infrastructure LLP registered in Adimali, Idukki. PWD registration obtained.</p>
-        </div>
-        <div class="timeline-dot">&#9679;</div>
-        <div class="timeline-empty"></div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-empty"></div>
-        <div class="timeline-dot">&#9679;</div>
-        <div class="timeline-content">
-          <div class="timeline-year">2019–2020</div>
-          <h3>First PMGSY Project</h3>
-          <p>Secured first government road connectivity project under PMGSY in Devikulam taluk. ₹1.5 Cr contract.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <div class="timeline-year">2020</div>
-          <h3>Fleet Expansion</h3>
-          <p>Acquired 3 Hitachi excavators and 4 Bharatbenz tippers. Expanded to 60+ workers.</p>
-        </div>
-        <div class="timeline-dot">&#9679;</div>
-        <div class="timeline-empty"></div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-empty"></div>
-        <div class="timeline-dot">&#9679;</div>
-        <div class="timeline-content">
-          <div class="timeline-year">2021</div>
-          <h3>First Bridge Contract</h3>
-          <p>Entered bridge construction. Hired structural engineers, team reached 60+ workers.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <div class="timeline-year">2022–2023</div>
-          <h3>Multi-District Presence</h3>
-          <p>Expanded to Ernakulam and Thrissur. 10+ concurrent projects. Team reached 100+.</p>
-        </div>
-        <div class="timeline-dot">&#9679;</div>
-        <div class="timeline-empty"></div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-empty"></div>
-        <div class="timeline-dot">&#9679;</div>
-        <div class="timeline-content">
-          <div class="timeline-year">2024–Now</div>
-          <h3>&#8377;100+ Crore Milestone</h3>
-          <p>Crossed ₹100 crore in cumulative project value. 5 active government contracts ongoing.</p>
-        </div>
-      </div>
+    <div class="tl-track">
+      <div class="tl-line"></div>
+      <div class="tl-item"><div class="tl-c"><div class="tl-yr">April 2019</div><h3>Company Founded</h3><p>Highrange Infrastructure LLP registered in Adimali. PWD registration obtained. First office opened.</p></div><div class="tl-dot">19</div><div class="tl-empty"></div></div>
+      <div class="tl-item"><div class="tl-empty"></div><div class="tl-dot">20</div><div class="tl-c"><div class="tl-yr">2019&ndash;2020</div><h3>First PMGSY Project</h3><p>Secured first government road connectivity project in Devikulam taluk. &#8377;1.5 Cr contract.</p></div></div>
+      <div class="tl-item"><div class="tl-c"><div class="tl-yr">2020</div><h3>Fleet Expansion</h3><p>Acquired 3 Hitachi excavators, 4 Bharatbenz tippers. Team expanded to 60+ workers.</p></div><div class="tl-dot">20</div><div class="tl-empty"></div></div>
+      <div class="tl-item"><div class="tl-empty"></div><div class="tl-dot">21</div><div class="tl-c"><div class="tl-yr">2021</div><h3>First Bridge Contract</h3><p>Entered bridge construction. Structural engineers hired. First RCC bridge project won.</p></div></div>
+      <div class="tl-item"><div class="tl-c"><div class="tl-yr">2022&ndash;2023</div><h3>Multi-District Presence</h3><p>Expanded to Ernakulam and Thrissur. 10+ concurrent projects. Team reached 100+.</p></div><div class="tl-dot">23</div><div class="tl-empty"></div></div>
+      <div class="tl-item"><div class="tl-empty"></div><div class="tl-dot">24</div><div class="tl-c"><div class="tl-yr">2024 &ndash; Now</div><h3>&#8377;100+ Crore Milestone</h3><p>Crossed &#8377;100 crore cumulative project value. 5 active government contracts ongoing.</p></div></div>
     </div>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
 <section id="testimonials">
-  <div class="container">
-    <div class="testimonials-header">
-      <span class="section-tag reveal">Client Voices</span>
-      <h2 class="reveal reveal-delay-1">Trusted by Government<br>&amp; Community Alike</h2>
+  <div class="wrap">
+    <div class="test-head">
+      <span class="stag rev">Client Voices</span>
+      <h2 class="rev d1">Trusted by Government<br>&amp; Community Alike</h2>
     </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card reveal">
-        <div class="testimonial-quote">"</div>
-        <div class="testimonial-text">The Periyar bridge was completed three months ahead of schedule despite heavy monsoon disruptions. Their commitment to timelines and quality of RCC work was exemplary — one of the best contractors we've worked with.</div>
-        <div class="testimonial-author">
-          <div class="author-avatar">&#128679;</div>
-          <div>
-            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="author-role">Executive Engineer, Kerala PWD — Devikulam Division</div>
-          </div>
+    <div class="test-g">
+      <div class="tcard rev">
+        <div class="tq">"</div>
+        <div class="tt">The Periyar bridge was completed three months ahead of schedule despite heavy monsoon disruptions. Commitment to timelines and quality of RCC work was exemplary.</div>
+        <div class="ta">
+          <div class="ta-av">PWD</div>
+          <div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="ta-role">Executive Engineer, Kerala PWD — Devikulam Division</div></div>
         </div>
       </div>
-      <div class="testimonial-card reveal reveal-delay-1">
-        <div class="testimonial-quote">"</div>
-        <div class="testimonial-text">We've worked with many contractors across Idukki. Highrange consistently delivers to PMGSY specs without cutting corners. Our village finally has an all-weather road — something we waited years for.</div>
-        <div class="testimonial-author">
-          <div class="author-avatar">&#127968;</div>
-          <div>
-            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="author-role">Panchayath President — Mannamkandam Grama Panchayath</div>
-          </div>
+      <div class="tcard rev d1">
+        <div class="tq">"</div>
+        <div class="tt">Highrange consistently delivers to PMGSY specs without cutting corners. Our village finally has an all-weather road — something we waited years for.</div>
+        <div class="ta">
+          <div class="ta-av">GP</div>
+          <div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="ta-role">Panchayath President — Mannamkandam Grama Panchayath</div></div>
         </div>
       </div>
-      <div class="testimonial-card reveal reveal-delay-2">
-        <div class="testimonial-quote">"</div>
-        <div class="testimonial-text">Their team managed the Kuttampuzha culvert package in extremely difficult terrain with zero safety incidents. Professional, skilled, and reliable at every stage of execution.</div>
-        <div class="testimonial-author">
-          <div class="author-avatar">&#128208;</div>
-          <div>
-            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="author-role">Project Manager — PMGSY State Unit, Kerala</div>
-          </div>
+      <div class="tcard rev d2">
+        <div class="tq">"</div>
+        <div class="tt">Managed the Kuttampuzha culvert package in extremely difficult terrain with zero safety incidents. Professional, skilled, and reliable at every stage.</div>
+        <div class="ta">
+          <div class="ta-av">PM</div>
+          <div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="ta-role">Project Manager — PMGSY State Unit, Kerala</div></div>
         </div>
       </div>
     </div>
@@ -831,80 +557,30 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:.02;background-
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="container">
-    <div class="contact-grid">
-      <div class="contact-info">
-        <span class="section-tag reveal">Contact</span>
-        <h2 class="reveal reveal-delay-1">Let's Build<br>Something Great</h2>
-        <p class="reveal reveal-delay-2">Whether you're a government department, contractor, or project partner — we're ready to talk. Based in Adimali, serving all of Kerala.</p>
-        <div class="contact-details reveal reveal-delay-3">
-          <div class="contact-detail">
-            <div class="detail-icon">&#128205;</div>
-            <div>
-              <div class="detail-label">Registered Office</div>
-              <div class="detail-value">No. XV/515, Adimali P.O,<br>Idukki, Kerala — 685561</div>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="detail-icon">&#128231;</div>
-            <div>
-              <div class="detail-label">Email</div>
-              <div class="detail-value">highrangeinfra@gmail.com</div>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="detail-icon">&#127963;</div>
-            <div>
-              <div class="detail-label">Registration</div>
-              <div class="detail-value">LLPIN: AAO-9170 · ROC: Ernakulam</div>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="detail-icon">&#128336;</div>
-            <div>
-              <div class="detail-label">Working Hours</div>
-              <div class="detail-value">Mon–Sat: 9:00 AM – 6:00 PM</div>
-            </div>
-          </div>
+  <div class="wrap">
+    <div class="con-g">
+      <div class="con-info">
+        <span class="stag rev">Contact</span>
+        <h2 class="rev d1">Let's Build<br>Something Great</h2>
+        <p class="rev d2">Whether you're a government department, contractor, or project partner — we're ready to talk. Based in Adimali, serving all of Kerala.</p>
+        <div class="con-dets rev d3">
+          <div class="con-det"><div class="con-ico">&#9673;</div><div><div class="det-lbl">Registered Office</div><div class="det-val">No. XV/515, Adimali P.O, Idukki, Kerala &mdash; 685561</div></div></div>
+          <div class="con-det"><div class="con-ico">@</div><div><div class="det-lbl">Email</div><div class="det-val">highrangeinfra@gmail.com</div></div></div>
+          <div class="con-det"><div class="con-ico">#</div><div><div class="det-lbl">Registration</div><div class="det-val">LLPIN: AAO-9170 &middot; ROC: Ernakulam</div></div></div>
+          <div class="con-det"><div class="con-ico">&#9711;</div><div><div class="det-lbl">Working Hours</div><div class="det-val">Mon&ndash;Sat: 9:00 AM &ndash; 6:00 PM</div></div></div>
         </div>
       </div>
-      <div class="contact-form reveal reveal-delay-2">
+      <div class="con-form rev d2">
         <h3>Send a Message</h3>
-        <form>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Your Name</label>
-              <input type="text" placeholder="Full name" required/>
-            </div>
-            <div class="form-group">
-              <label>Organisation</label>
-              <input type="text" placeholder="Dept. / Company"/>
-            </div>
+        <form id="con-form">
+          <div class="fg-row">
+            <div class="fg"><label>Name</label><input type="text" placeholder="Full name" required/></div>
+            <div class="fg"><label>Organisation</label><input type="text" placeholder="Dept. / Company"/></div>
           </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" placeholder="your@email.com" required/>
-          </div>
-          <div class="form-group">
-            <label>Enquiry Type</label>
-            <select>
-              <option value="">Select type...</option>
-              <option>Road Construction</option>
-              <option>Bridge Construction</option>
-              <option>Culvert / Drainage</option>
-              <option>Equipment Hire</option>
-              <option>Government Tender</option>
-              <option>Sub-contract Work</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Message</label>
-            <textarea placeholder="Describe your project or enquiry..."></textarea>
-          </div>
-          <button type="submit" class="btn-specular" style="width:100%;justify-content:center;padding:16px;cursor:none;">
-            <span>Send Message</span>
-          </button>
+          <div class="fg"><label>Email</label><input type="email" placeholder="your@email.com" required/></div>
+          <div class="fg"><label>Enquiry Type</label><select><option value="">Select...</option><option>Road Construction</option><option>Bridge Construction</option><option>Culvert / Drainage</option><option>Equipment Hire</option><option>Government Tender</option><option>Other</option></select></div>
+          <div class="fg"><label>Message</label><textarea placeholder="Describe your project..."></textarea></div>
+          <button type="submit" class="btn-spec" style="width:100%;justify-content:center;padding:15px;cursor:none"><span>Send Message</span></button>
         </form>
       </div>
     </div>
@@ -913,545 +589,381 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:.02;background-
 
 <!-- FOOTER -->
 <footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand reveal">
-        <div class="logo-text">HIGHRANGE</div>
-        <div class="logo-sub">Infrastructure LLP</div>
-        <p>Building roads, bridges and futures across Kerala's high-range terrain since 2019. Every project is a promise kept to the communities we serve.</p>
+  <div class="wrap">
+    <div class="ft-g">
+      <div class="ft-brand rev">
+        <div class="logo">HIGHRANGE</div>
+        <div class="sub">Infrastructure LLP</div>
+        <p>Building roads, bridges and futures across Kerala's high-range terrain since 2019.</p>
       </div>
-      <div class="footer-col reveal reveal-delay-1">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="#services">Road Construction</a></li>
-          <li><a href="#services">Bridge Construction</a></li>
-          <li><a href="#services">Culverts &amp; Drains</a></li>
-          <li><a href="#services">Earthwork</a></li>
-          <li><a href="#services">Structural Works</a></li>
-        </ul>
-      </div>
-      <div class="footer-col reveal reveal-delay-2">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#timeline">Our Journey</a></li>
-          <li><a href="#equipment">Fleet</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-        </ul>
-      </div>
-      <div class="footer-col reveal reveal-delay-3">
-        <h4>Reach Us</h4>
-        <ul>
-          <li><a href="#">Adimali, Idukki</a></li>
-          <li><a href="#">highrangeinfra@gmail.com</a></li>
-          <li><a href="#">Kerala, India</a></li>
-          <li><a href="#">LLPIN: AAO-9170</a></li>
-        </ul>
-      </div>
+      <div class="ft-col rev d1"><h4>Services</h4><ul><li><a href="#services">Road Construction</a></li><li><a href="#services">Bridge Construction</a></li><li><a href="#services">Culverts &amp; Drains</a></li><li><a href="#services">Earthwork</a></li></ul></div>
+      <div class="ft-col rev d2"><h4>Company</h4><ul><li><a href="#about">About</a></li><li><a href="#timeline">Journey</a></li><li><a href="#equipment">Fleet</a></li><li><a href="#projects">Projects</a></li></ul></div>
+      <div class="ft-col rev d3"><h4>Reach Us</h4><ul><li><a href="#">Adimali, Idukki</a></li><li><a href="#">highrangeinfra@gmail.com</a></li><li><a href="#">LLPIN: AAO-9170</a></li></ul></div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2024 Highrange Infrastructure LLP. All rights reserved.</p>
-      <div class="footer-certifications">
-        <span class="cert-badge">PWD Certified</span>
-        <span class="cert-badge">PMGSY Approved</span>
-        <span class="cert-badge">MCA Active</span>
-      </div>
+    <div class="ft-bot">
+      <p>&copy; 2024 Highrange Infrastructure LLP. Adimali, Idukki, Kerala.</p>
+      <div class="ft-certs"><span class="ft-cert">PWD Certified</span><span class="ft-cert">PMGSY Approved</span><span class="ft-cert">MCA Active</span></div>
     </div>
   </div>
 </footer>
 
 <script>
-'use strict';
+window.addEventListener('load', function() {
 
-// PROGRESS BAR
-const progressBar = document.getElementById('progress-bar');
-window.addEventListener('scroll', () => {
-  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
-  if (progressBar) progressBar.style.width = pct + '%';
-});
-
-// CURSOR
-const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursor-ring');
-let mx = 0, my = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  if (cursor) { cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; }
-});
-function animateRing() {
-  rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-  if (ring) { ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; }
-  requestAnimationFrame(animateRing);
-}
-animateRing();
-document.querySelectorAll('a,button,.spotlight-card,.equip-card,.carousel-btn,.project-node-card').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    if (cursor) { cursor.style.width = '18px'; cursor.style.height = '18px'; }
-    if (ring) { ring.style.width = '52px'; ring.style.height = '52px'; ring.style.borderColor = 'rgba(59,130,246,0.7)'; }
+/* CURSOR */
+try {
+  var cur = document.getElementById('cur'), curR = document.getElementById('cur-r');
+  var mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+  (function rf(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(rf);})();
+  document.querySelectorAll('a,button,.scard,.ocard,.ecard').forEach(function(el){
+    el.addEventListener('mouseenter',function(){cur.style.width='18px';cur.style.height='18px';curR.style.width='48px';curR.style.height='48px';});
+    el.addEventListener('mouseleave',function(){cur.style.width='10px';cur.style.height='10px';curR.style.width='30px';curR.style.height='30px';});
   });
-  el.addEventListener('mouseleave', () => {
-    if (cursor) { cursor.style.width = '10px'; cursor.style.height = '10px'; }
-    if (ring) { ring.style.width = '32px'; ring.style.height = '32px'; ring.style.borderColor = 'rgba(59,130,246,0.5)'; }
-  });
-});
+} catch(e) { console.warn('cursor',e); }
 
-// NAV HIDE/SHOW ON SCROLL
-const nav = document.querySelector('nav');
-let lastScroll = 0;
-window.addEventListener('scroll', () => {
-  const cur = window.scrollY;
-  if (nav) {
-    nav.style.top = (cur > 80 && cur > lastScroll) ? '-80px' : '20px';
-  }
-  lastScroll = cur;
-  document.querySelectorAll('section[id]').forEach(sec => {
-    const top = sec.offsetTop - 120, bot = top + sec.offsetHeight;
-    if (cur >= top && cur < bot) {
-      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-      const link = document.querySelector(`.nav-item[href="#${sec.id}"]`);
-      if (link) link.classList.add('active');
-    }
-  });
-});
+/* PROGRESS */
+try {
+  var pb = document.getElementById('pgbar');
+  window.addEventListener('scroll',function(){pb.style.width=(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)+'%';});
+} catch(e) {}
 
-// === THREE.JS HERO ===
-(function initHero() {
-  const canvas = document.getElementById('hero-canvas');
-  if (!canvas || typeof THREE === 'undefined') return;
-  const W = canvas.clientWidth, H = canvas.clientHeight;
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-  renderer.setSize(W, H);
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-  renderer.setClearColor(0x000000, 0);
-  renderer.shadowMap.enabled = true;
-
-  const scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0x05080f, 0.016);
-  const camera = new THREE.PerspectiveCamera(58, W / H, 0.1, 1000);
-  camera.position.set(0, 5, 20);
-  camera.lookAt(0, 1, 0);
-
-  // Lights
-  scene.add(new THREE.AmbientLight(0x0a1628, 2));
-  const sun = new THREE.DirectionalLight(0x93c5fd, 2.5);
-  sun.position.set(8, 20, 10);
-  sun.castShadow = true;
-  scene.add(sun);
-  const fill = new THREE.DirectionalLight(0x1a56db, 1);
-  fill.position.set(-10, 5, -5);
-  scene.add(fill);
-  const ground_light = new THREE.PointLight(0x3b82f6, 0.8, 30);
-  ground_light.position.set(0, 0.5, 5);
-  scene.add(ground_light);
-
-  // Ground
-  const ground = new THREE.Mesh(
-    new THREE.PlaneGeometry(100, 100),
-    new THREE.MeshStandardMaterial({ color: 0x080d18, roughness: 1 })
-  );
-  ground.rotation.x = -Math.PI / 2; ground.position.y = -1.5;
-  ground.receiveShadow = true;
-  scene.add(ground);
-
-  // Grid
-  const grid = new THREE.GridHelper(100, 50, 0x1a56db, 0x0d1525);
-  grid.position.y = -1.49;
-  grid.material.opacity = 0.2; grid.material.transparent = true;
-  scene.add(grid);
-
-  // Road
-  const road = new THREE.Mesh(
-    new THREE.PlaneGeometry(9, 70),
-    new THREE.MeshStandardMaterial({ color: 0x0a0f1c, roughness: 1 })
-  );
-  road.rotation.x = -Math.PI / 2; road.position.set(0, -1.48, 5);
-  scene.add(road);
-  for (let i = 0; i < 10; i++) {
-    const m = new THREE.Mesh(new THREE.PlaneGeometry(0.3, 3), new THREE.MeshStandardMaterial({ color: 0x3b82f6, roughness: 1 }));
-    m.rotation.x = -Math.PI / 2; m.position.set(0, -1.47, -25 + i * 7);
-    scene.add(m);
-  }
-
-  // Building helper
-  function makeBuilding(x, z, floors, color) {
-    const g = new THREE.Group();
-    const w = 3 + Math.random(), d = 3 + Math.random();
-    for (let f = 0; f < floors; f++) {
-      const h = 1.3;
-      const mesh = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), new THREE.MeshStandardMaterial({ color, roughness: 0.7, metalness: 0.15 }));
-      mesh.position.y = f * (h + 0.04);
-      mesh.castShadow = true;
-      g.add(mesh);
-      // window lights
-      if (f < floors - 1) {
-        for (let ww = 0; ww < 4; ww++) {
-          const win = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.5, 0.05), new THREE.MeshStandardMaterial({ color: 0x93c5fd, emissive: 0x3b82f6, emissiveIntensity: 0.8 }));
-          win.position.set(-0.6 + ww * 0.5, f * (h + 0.04) + 0.1, d / 2 + 0.01);
-          g.add(win);
-        }
-      }
-      // top rebar
-      if (f === floors - 1) {
-        for (let r = 0; r < 8; r++) {
-          const rb = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.8 + Math.random() * 1), new THREE.MeshStandardMaterial({ color: 0x5577aa, metalness: 0.8, roughness: 0.3 }));
-          rb.position.set((Math.random() - 0.5) * (w - 0.6), f * (h + 0.04) + h / 2 + 0.5, (Math.random() - 0.5) * (d - 0.6));
-          rb.rotation.x = (Math.random() - 0.5) * 0.25;
-          g.add(rb);
-        }
-      }
-    }
-    g.position.set(x, -1.5, z);
-    scene.add(g);
-    return g;
-  }
-
-  makeBuilding(-10, -6, 5, 0x0d1a2e);
-  makeBuilding(10, -9, 4, 0x0a1525);
-  makeBuilding(-14, 0, 6, 0x0f1f30);
-  makeBuilding(14, -3, 3, 0x0c1820);
-
-  // JCB
-  const jcbG = new THREE.Group();
-  const jcbBody = new THREE.Mesh(new THREE.BoxGeometry(3.5, 1.8, 2.5), new THREE.MeshStandardMaterial({ color: 0xf0c000, roughness: 0.4, metalness: 0.3 }));
-  jcbBody.position.y = 0.9; jcbG.add(jcbBody);
-  const jcbCab = new THREE.Mesh(new THREE.BoxGeometry(1.5, 1.4, 1.8), new THREE.MeshStandardMaterial({ color: 0xd4a800 }));
-  jcbCab.position.set(0.8, 2.6, 0); jcbG.add(jcbCab);
-  const glass = new THREE.Mesh(new THREE.BoxGeometry(1.3, 1.0, 0.08), new THREE.MeshStandardMaterial({ color: 0x93c5fd, transparent: true, opacity: 0.5, metalness: 0.9 }));
-  glass.position.set(0.8, 2.6, 0.94); jcbG.add(glass);
-  [-1, 1].forEach(s => {
-    const t = new THREE.Mesh(new THREE.BoxGeometry(3.8, 0.5, 0.6), new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 1 }));
-    t.position.set(0, 0.25, s * 1.2); jcbG.add(t);
-  });
-  const boom = new THREE.Mesh(new THREE.BoxGeometry(0.22, 3.2, 0.22), new THREE.MeshStandardMaterial({ color: 0xf0c000, roughness: 0.4 }));
-  boom.position.set(-1.2, 2.9, 0); boom.rotation.z = -0.4; jcbG.add(boom);
-  const bkt = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.5, 0.9), new THREE.MeshStandardMaterial({ color: 0x778899, metalness: 0.6 }));
-  bkt.position.set(-2.3, 1.4, 0); jcbG.add(bkt);
-  jcbG.position.set(-5, -1.5, 2); jcbG.rotation.y = 0.4;
-  scene.add(jcbG);
-
-  // Tower crane
-  const craneG = new THREE.Group();
-  const mast = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.2, 18), new THREE.MeshStandardMaterial({ color: 0xcc2200, metalness: 0.4 }));
-  mast.position.y = 9; craneG.add(mast);
-  const jib = new THREE.Mesh(new THREE.BoxGeometry(16, 0.2, 0.2), new THREE.MeshStandardMaterial({ color: 0xcc2200 }));
-  jib.position.set(2, 18.2, 0); craneG.add(jib);
-  const cjib = new THREE.Mesh(new THREE.BoxGeometry(5, 0.2, 0.2), new THREE.MeshStandardMaterial({ color: 0xcc2200 }));
-  cjib.position.set(-4, 18.2, 0); craneG.add(cjib);
-  const cw = new THREE.Mesh(new THREE.BoxGeometry(1, 0.8, 0.6), new THREE.MeshStandardMaterial({ color: 0x334455, metalness: 0.5 }));
-  cw.position.set(-6.5, 18, 0); craneG.add(cw);
-  const wire = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 7), new THREE.MeshStandardMaterial({ color: 0xaabbcc, metalness: 0.9 }));
-  wire.position.set(7, 14.5, 0); craneG.add(wire);
-  const hook = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.5, 0.5), new THREE.MeshStandardMaterial({ color: 0x889aaa, metalness: 0.8 }));
-  hook.position.set(7, 11, 0); craneG.add(hook);
-  craneG.position.set(9, -1.5, -12);
-  scene.add(craneG);
-
-  // Lorry
-  const lorryG = new THREE.Group();
-  const lBody = new THREE.Mesh(new THREE.BoxGeometry(8, 2.5, 2.8), new THREE.MeshStandardMaterial({ color: 0xbb1100, roughness: 0.4, metalness: 0.2 }));
-  lBody.position.set(0, 1.25, 0); lorryG.add(lBody);
-  const lCab = new THREE.Mesh(new THREE.BoxGeometry(2.2, 2.2, 2.6), new THREE.MeshStandardMaterial({ color: 0x991100 }));
-  lCab.position.set(3, 2.85, 0); lorryG.add(lCab);
-  const ws = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.4, 2.0), new THREE.MeshStandardMaterial({ color: 0x93c5fd, transparent: true, opacity: 0.5, metalness: 0.9 }));
-  ws.position.set(4.1, 3.15, 0); lorryG.add(ws);
-  [[-2.5, -1.3], [-0.5, -1.3], [2.5, -1.3], [4, -1.3]].forEach(([wx, wz]) => {
-    const wh = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 0.7, 0.5), new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 1 }));
-    wh.rotation.z = Math.PI / 2; wh.position.set(wx, 0.7, wz); lorryG.add(wh);
-  });
-  lorryG.position.set(4, -1.5, 5); lorryG.rotation.y = -Math.PI / 2;
-  scene.add(lorryG);
-
-  // Workers
-  function worker(x, z) {
-    const g = new THREE.Group();
-    g.add(Object.assign(new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.28, 0.9), new THREE.MeshStandardMaterial({ color: 0x1a3a6a })), { position: new THREE.Vector3(0, 0.45, 0) }));
-    g.add(Object.assign(new THREE.Mesh(new THREE.SphereGeometry(0.21, 8, 8), new THREE.MeshStandardMaterial({ color: 0xffcc99 })), { position: new THREE.Vector3(0, 1.07, 0) }));
-    const helm = new THREE.Mesh(new THREE.SphereGeometry(0.24, 8, 6), new THREE.MeshStandardMaterial({ color: 0xffcc00 }));
-    helm.scale.y = 0.55; helm.position.set(0, 1.2, 0); g.add(helm);
-    g.position.set(x, -1.5, z);
-    scene.add(g);
-    return g;
-  }
-  const workers = [worker(-3, 3), worker(0.5, 1.5), worker(6, 0.5)];
-
-  // Material pile
-  const pile = new THREE.Mesh(new THREE.ConeGeometry(1.5, 1.2, 12), new THREE.MeshStandardMaterial({ color: 0x556677, roughness: 1 }));
-  pile.position.set(-1.5, -0.9, 0); scene.add(pile);
-
-  // Particles
-  const N = 350;
-  const ppos = new Float32Array(N * 3);
-  for (let i = 0; i < N; i++) {
-    ppos[i*3] = (Math.random()-0.5)*70;
-    ppos[i*3+1] = Math.random()*22;
-    ppos[i*3+2] = (Math.random()-0.5)*50-5;
-  }
-  const pgeo = new THREE.BufferGeometry();
-  pgeo.setAttribute('position', new THREE.BufferAttribute(ppos, 3));
-  scene.add(new THREE.Points(pgeo, new THREE.PointsMaterial({ color: 0x3b82f6, size: 0.07, transparent: true, opacity: 0.3 })));
-
-  // Animate
-  let camTX = 0, camTY = 5;
-  document.addEventListener('mousemove', e => {
-    camTX = ((e.clientX / window.innerWidth) - 0.5) * 5;
-    camTY = 5 + ((e.clientY / window.innerHeight) - 0.5) * -2.5;
-  });
-
-  const clock = new THREE.Clock();
-  (function animate() {
-    requestAnimationFrame(animate);
-    const t = clock.getElapsedTime();
-    camera.position.x += (camTX - camera.position.x) * 0.018;
-    camera.position.y += (camTY - camera.position.y) * 0.018;
-    camera.lookAt(0, 2, 0);
-    craneG.rotation.y = t * 0.1;
-    boom.rotation.z = -0.4 + Math.sin(t * 0.7) * 0.28;
-    bkt.position.y = 1.4 + Math.sin(t * 0.7 + 0.5) * 0.7;
-    jcbG.rotation.y = 0.4 + Math.sin(t * 0.25) * 0.2;
-    workers.forEach((w, i) => { w.position.y = -1.5 + Math.sin(t * 1.1 + i * 2) * 0.04; });
-    lorryG.position.z += 0.012;
-    if (lorryG.position.z > 22) lorryG.position.z = -22;
-    const pp = pgeo.attributes.position.array;
-    for (let i = 0; i < N; i++) { pp[i*3+1] += 0.018; if (pp[i*3+1] > 22) pp[i*3+1] = 0; pp[i*3] += Math.sin(t*0.4+i)*0.003; }
-    pgeo.attributes.position.needsUpdate = true;
-    renderer.render(scene, camera);
-  })();
-
-  window.addEventListener('resize', () => {
-    const W2 = canvas.clientWidth, H2 = canvas.clientHeight;
-    camera.aspect = W2 / H2; camera.updateProjectionMatrix();
-    renderer.setSize(W2, H2);
-  });
-})();
-
-// COUNTER ANIMATION
-function animateCounter(el) {
-  const target = parseFloat(el.dataset.target);
-  const suffix = el.dataset.suffix || '';
-  const prefix = el.dataset.prefix || '';
-  const duration = 2200;
-  const start = performance.now();
-  function step(now) {
-    const p = Math.min((now - start) / duration, 1);
-    const ease = 1 - Math.pow(1 - p, 4);
-    const val = target * ease;
-    el.textContent = prefix + (Number.isInteger(target) ? Math.floor(val) : val.toFixed(1)) + suffix;
-    if (p < 1) requestAnimationFrame(step);
-    else el.textContent = prefix + target + suffix;
-  }
-  requestAnimationFrame(step);
-}
-
-// INTERSECTION OBSERVER
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    if (e.target.classList.contains('reveal')) e.target.classList.add('visible');
-    if (e.target.classList.contains('stat-number')) { animateCounter(e.target); io.unobserve(e.target); }
-    if (e.target.classList.contains('timeline-item')) e.target.classList.add('visible');
-  });
-}, { threshold: 0.15 });
-document.querySelectorAll('.reveal,.stat-number,.timeline-item').forEach(el => io.observe(el));
-
-// SPOTLIGHT CARDS
-document.querySelectorAll('.spotlight-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const r = card.getBoundingClientRect();
-    card.style.setProperty('--mouse-x', ((e.clientX - r.left) / r.width * 100) + '%');
-    card.style.setProperty('--mouse-y', ((e.clientY - r.top) / r.height * 100) + '%');
-  });
-});
-
-// === CIRCULAR PROJECT ORBIT ===
-(function initOrbit() {
-  const nodes = document.querySelectorAll('.project-node');
-  if (!nodes.length) return;
-  const total = nodes.length;
-  const radius = 220;
-  let currentAngle = 0;
-  let activeIdx = 0;
-
-  const projects = [
-    { type: 'Bridge · PMGSY', name: 'Periyar Valley Bridge, Idukki', location: 'Devikulam', year: '2023', value: '₹4.2 Cr' },
-    { type: 'Road · PWD', name: 'Adimali–Munnar Bypass Road', location: 'Idukki', year: '2022', value: '₹7.8 Cr' },
-    { type: 'Culvert · PMGSY', name: 'Box Culvert Package, Kuttampuzha', location: 'Ernakulam', year: '2021', value: '₹2.1 Cr' },
-    { type: 'Earthwork · PWD', name: 'NH-183 Embankment Works', location: 'Thodupuzha', year: '2022', value: '₹5.5 Cr' },
-    { type: 'Bridge · PMGSY', name: 'Kallar River RCC Bridge', location: 'Munnar', year: '2023', value: '₹6.3 Cr' },
-    { type: 'Road · PMGSY', name: 'Valara Connectivity Road Package', location: 'Idukki', year: '2024', value: '₹9.2 Cr' },
-    { type: 'Retaining Wall · PWD', name: 'High-Range Slope Protection', location: 'Devikulam', year: '2021', value: '₹3.1 Cr' },
-    { type: 'Civil · Govt.', name: 'Panchayath Infrastructure Package', location: 'Mannamkandam', year: '2024', value: '₹4.8 Cr' },
-  ];
-
-  function layout() {
-    nodes.forEach((node, i) => {
-      const angle = (i / total) * Math.PI * 2 + currentAngle;
-      const x = Math.sin(angle) * radius;
-      const y = Math.cos(angle) * radius;
-      node.style.transform = `translate(${x}px, ${y}px)`;
-      const card = node.querySelector('.project-node-card');
-      if (card) {
-        const dist = Math.abs(angle % (Math.PI * 2));
-        const isFront = dist < 0.5 || dist > Math.PI * 2 - 0.5;
-        card.classList.toggle('active-node', isFront);
+/* NAV HIDE */
+try {
+  var nav = document.querySelector('nav'), lastSY = 0;
+  window.addEventListener('scroll',function(){
+    var cy = window.scrollY;
+    nav.style.top = (cy > 80 && cy > lastSY) ? '-80px' : '18px';
+    lastSY = cy;
+    document.querySelectorAll('section[id]').forEach(function(s){
+      var t=s.offsetTop-130,b=t+s.offsetHeight;
+      if(cy>=t&&cy<b){
+        document.querySelectorAll('.nav-item').forEach(function(n){n.classList.remove('active');});
+        var lk=document.querySelector('.nav-item[href="#'+s.id+'"]');
+        if(lk)lk.classList.add('active');
       }
     });
-    // Update detail panel
-    const panel = document.getElementById('project-detail');
-    if (panel) {
-      const p = projects[activeIdx];
-      panel.querySelector('.pdp-type').textContent = p.type;
-      panel.querySelector('.pdp-title').textContent = p.name;
-      panel.querySelector('[data-loc]').textContent = 'Location: ' + p.location;
-      panel.querySelector('[data-yr]').textContent = 'Completed: ' + p.year;
-      panel.querySelector('[data-val]').textContent = 'Contract Value: ' + p.value;
-    }
-  }
-  layout();
+  });
+} catch(e) {}
 
-  // Scroll to rotate
-  const wrap = document.querySelector('.projects-circular-wrap');
-  if (wrap) {
-    wrap.addEventListener('wheel', e => {
-      e.preventDefault();
-      currentAngle += e.deltaY * 0.003;
-      // Find closest to top (angle ~= 0 or 2PI)
-      let best = 0, bestDist = Infinity;
-      nodes.forEach((_, i) => {
-        const angle = (i / total) * Math.PI * 2 + currentAngle;
-        const norm = ((angle % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
-        const dist = Math.min(norm, Math.PI * 2 - norm);
-        if (dist < bestDist) { bestDist = dist; best = i; }
+/* REVEAL via IntersectionObserver */
+function revealEl(el){ el.classList.add('vis'); }
+try {
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el = e.target;
+      if(el.classList.contains('rev')) revealEl(el);
+      if(el.classList.contains('stat-num')){ animCounter(el); io.unobserve(el); }
+      if(el.classList.contains('tl-item')) revealEl(el);
+    });
+  },{threshold:0.08, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rev,.stat-num,.tl-item').forEach(function(el){io.observe(el);});
+} catch(e){ console.warn('io',e); }
+/* Hard fallback: make everything visible after 1.5s no matter what */
+setTimeout(function(){
+  document.querySelectorAll('.rev,.tl-item').forEach(function(el){ el.classList.add('vis'); });
+  document.querySelectorAll('.stat-num').forEach(function(el){ animCounter(el); });
+}, 1500);
+
+/* COUNTER */
+function animCounter(el) {
+  try {
+    var target = parseFloat(el.dataset.t)||0;
+    var suf = el.dataset.s||'';
+    var pre = el.dataset.p||'';
+    var dur = 2000, start = performance.now();
+    function step(now){
+      var p=Math.min((now-start)/dur,1);
+      var e2=1-Math.pow(1-p,4);
+      el.textContent = pre + (Number.isInteger(target)?Math.floor(target*e2):(target*e2).toFixed(1)) + suf;
+      if(p<1) requestAnimationFrame(step);
+      else el.textContent = pre+target+suf;
+    }
+    requestAnimationFrame(step);
+  } catch(e) {}
+}
+
+/* SPOTLIGHT CARDS */
+try {
+  document.querySelectorAll('.scard').forEach(function(c){
+    c.addEventListener('mousemove',function(e){
+      var r=c.getBoundingClientRect();
+      c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+      c.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+    });
+  });
+} catch(e) {}
+
+/* THREE.JS HERO */
+try {
+  var hc = document.getElementById('hero-canvas');
+  if(hc && typeof THREE !== 'undefined') {
+    var W=hc.parentElement.clientWidth||window.innerWidth, H=hc.parentElement.clientHeight||window.innerHeight;
+    var rdr = new THREE.WebGLRenderer({canvas:hc,antialias:true,alpha:true});
+    rdr.setSize(W,H); rdr.setPixelRatio(Math.min(devicePixelRatio,2));
+    rdr.setClearColor(0x000000,0);
+    var sc = new THREE.Scene();
+    sc.fog = new THREE.FogExp2(0x050A15,0.015);
+    var cam = new THREE.PerspectiveCamera(58,W/H,0.1,1000);
+    cam.position.set(0,5,20); cam.lookAt(0,1,0);
+    sc.add(new THREE.AmbientLight(0x0a1628,2));
+    var sun=new THREE.DirectionalLight(0x93B8FF,2.2); sun.position.set(8,20,10); sc.add(sun);
+    var fill=new THREE.DirectionalLight(0x2355D6,0.9); fill.position.set(-10,5,-5); sc.add(fill);
+    /* ground */
+    var gnd=new THREE.Mesh(new THREE.PlaneGeometry(100,100),new THREE.MeshStandardMaterial({color:0x080d18,roughness:1}));
+    gnd.rotation.x=-Math.PI/2; gnd.position.y=-1.5; sc.add(gnd);
+    var grid=new THREE.GridHelper(100,50,0x2355D6,0x0d1525);
+    grid.position.y=-1.49; grid.material.opacity=0.18; grid.material.transparent=true; sc.add(grid);
+    /* road */
+    var road=new THREE.Mesh(new THREE.PlaneGeometry(9,70),new THREE.MeshStandardMaterial({color:0x0a0f1c,roughness:1}));
+    road.rotation.x=-Math.PI/2; road.position.set(0,-1.48,5); sc.add(road);
+    for(var ri=0;ri<10;ri++){var rm=new THREE.Mesh(new THREE.PlaneGeometry(.3,3),new THREE.MeshStandardMaterial({color:0x2355D6,roughness:1}));rm.rotation.x=-Math.PI/2;rm.position.set(0,-1.47,-25+ri*7);sc.add(rm);}
+    /* buildings */
+    function mkBld(x,z,floors,col){
+      var g=new THREE.Group(),w=3+Math.random(),d=3+Math.random();
+      for(var f=0;f<floors;f++){
+        var h=1.3,m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),new THREE.MeshStandardMaterial({color:col,roughness:.7,metalness:.15}));
+        m.position.y=f*(h+.04); g.add(m);
+        if(f<floors-1){for(var ww=0;ww<4;ww++){var win=new THREE.Mesh(new THREE.BoxGeometry(.4,.5,.05),new THREE.MeshStandardMaterial({color:0x93B8FF,emissive:0x2355D6,emissiveIntensity:.7}));win.position.set(-.6+ww*.5,f*(h+.04)+.1,d/2+.01);g.add(win);}}
+        if(f===floors-1){for(var rb=0;rb<7;rb++){var r2=new THREE.Mesh(new THREE.CylinderGeometry(.04,.04,.8+Math.random()*1),new THREE.MeshStandardMaterial({color:0x5577aa,metalness:.8,roughness:.3}));r2.position.set((Math.random()-.5)*(w-.6),f*(h+.04)+h/2+.5,(Math.random()-.5)*(d-.6));r2.rotation.x=(Math.random()-.5)*.25;g.add(r2);}}
+      }
+      g.position.set(x,-1.5,z); sc.add(g); return g;
+    }
+    mkBld(-10,-6,5,0x0d1a2e); mkBld(10,-9,4,0x0a1525); mkBld(-14,0,6,0x0f1f30); mkBld(14,-3,3,0x0c1820);
+    /* JCB */
+    var jG=new THREE.Group();
+    var jBody=new THREE.Mesh(new THREE.BoxGeometry(3.5,1.8,2.5),new THREE.MeshStandardMaterial({color:0xf0c000,roughness:.4,metalness:.3}));
+    jBody.position.y=.9; jG.add(jBody);
+    var jCab=new THREE.Mesh(new THREE.BoxGeometry(1.5,1.4,1.8),new THREE.MeshStandardMaterial({color:0xd4a800}));
+    jCab.position.set(.8,2.6,0); jG.add(jCab);
+    var jGlass=new THREE.Mesh(new THREE.BoxGeometry(1.3,1,.08),new THREE.MeshStandardMaterial({color:0x93B8FF,transparent:true,opacity:.5,metalness:.9}));
+    jGlass.position.set(.8,2.6,.94); jG.add(jGlass);
+    [-1,1].forEach(function(s){var t=new THREE.Mesh(new THREE.BoxGeometry(3.8,.5,.6),new THREE.MeshStandardMaterial({color:0x111111,roughness:1}));t.position.set(0,.25,s*1.2);jG.add(t);});
+    var boom=new THREE.Mesh(new THREE.BoxGeometry(.22,3.2,.22),new THREE.MeshStandardMaterial({color:0xf0c000,roughness:.4}));
+    boom.position.set(-1.2,2.9,0); boom.rotation.z=-.4; jG.add(boom);
+    var bkt=new THREE.Mesh(new THREE.BoxGeometry(.9,.5,.9),new THREE.MeshStandardMaterial({color:0x778899,metalness:.6}));
+    bkt.position.set(-2.3,1.4,0); jG.add(bkt);
+    jG.position.set(-5,-1.5,2); jG.rotation.y=.4; sc.add(jG);
+    /* crane */
+    var crG=new THREE.Group();
+    var mast=new THREE.Mesh(new THREE.CylinderGeometry(.15,.2,18),new THREE.MeshStandardMaterial({color:0xcc2200,metalness:.4}));
+    mast.position.y=9; crG.add(mast);
+    var jib=new THREE.Mesh(new THREE.BoxGeometry(16,.2,.2),new THREE.MeshStandardMaterial({color:0xcc2200}));
+    jib.position.set(2,18.2,0); crG.add(jib);
+    var cjib=new THREE.Mesh(new THREE.BoxGeometry(5,.2,.2),new THREE.MeshStandardMaterial({color:0xcc2200}));
+    cjib.position.set(-4,18.2,0); crG.add(cjib);
+    var cw=new THREE.Mesh(new THREE.BoxGeometry(1,.8,.6),new THREE.MeshStandardMaterial({color:0x334455,metalness:.5}));
+    cw.position.set(-6.5,18,0); crG.add(cw);
+    var wire=new THREE.Mesh(new THREE.CylinderGeometry(.03,.03,7),new THREE.MeshStandardMaterial({color:0xaabbcc,metalness:.9}));
+    wire.position.set(7,14.5,0); crG.add(wire);
+    var hook=new THREE.Mesh(new THREE.BoxGeometry(.5,.5,.5),new THREE.MeshStandardMaterial({color:0x889aaa,metalness:.8}));
+    hook.position.set(7,11,0); crG.add(hook);
+    crG.position.set(9,-1.5,-12); sc.add(crG);
+    /* lorry */
+    var lG=new THREE.Group();
+    var lBody=new THREE.Mesh(new THREE.BoxGeometry(8,2.5,2.8),new THREE.MeshStandardMaterial({color:0xbb1100,roughness:.4,metalness:.2}));
+    lBody.position.set(0,1.25,0); lG.add(lBody);
+    var lCab=new THREE.Mesh(new THREE.BoxGeometry(2.2,2.2,2.6),new THREE.MeshStandardMaterial({color:0x991100}));
+    lCab.position.set(3,2.85,0); lG.add(lCab);
+    var lWs=new THREE.Mesh(new THREE.BoxGeometry(.1,1.4,2),new THREE.MeshStandardMaterial({color:0x93B8FF,transparent:true,opacity:.5,metalness:.9}));
+    lWs.position.set(4.1,3.15,0); lG.add(lWs);
+    [[-2.5,-1.3],[-.5,-1.3],[2.5,-1.3],[4,-1.3]].forEach(function(wz){var wh=new THREE.Mesh(new THREE.CylinderGeometry(.7,.7,.5),new THREE.MeshStandardMaterial({color:0x111111,roughness:1}));wh.rotation.z=Math.PI/2;wh.position.set(wz[0],.7,wz[1]);lG.add(wh);});
+    lG.position.set(4,-1.5,5); lG.rotation.y=-Math.PI/2; sc.add(lG);
+    /* workers */
+    function mkWorker(x,z){
+      var g=new THREE.Group();
+      var body=new THREE.Mesh(new THREE.CylinderGeometry(.22,.28,.9),new THREE.MeshStandardMaterial({color:0x1a3a6a}));
+      body.position.set(0,.45,0); g.add(body);
+      var head=new THREE.Mesh(new THREE.SphereGeometry(.21,8,8),new THREE.MeshStandardMaterial({color:0xffcc99}));
+      head.position.set(0,1.07,0); g.add(head);
+      var helm=new THREE.Mesh(new THREE.SphereGeometry(.24,8,6),new THREE.MeshStandardMaterial({color:0xffcc00}));
+      helm.scale.y=.55; helm.position.set(0,1.2,0); g.add(helm);
+      g.position.set(x,-1.5,z); sc.add(g); return g;
+    }
+    var wkrs=[mkWorker(-3,3),mkWorker(.5,1.5),mkWorker(6,.5)];
+    var pile=new THREE.Mesh(new THREE.ConeGeometry(1.5,1.2,12),new THREE.MeshStandardMaterial({color:0x556677,roughness:1}));
+    pile.position.set(-1.5,-.9,0); sc.add(pile);
+    /* particles */
+    var PN=320, ppos=new Float32Array(PN*3);
+    for(var pi=0;pi<PN;pi++){ppos[pi*3]=(Math.random()-.5)*70;ppos[pi*3+1]=Math.random()*22;ppos[pi*3+2]=(Math.random()-.5)*50-5;}
+    var pgeo=new THREE.BufferGeometry(); pgeo.setAttribute('position',new THREE.BufferAttribute(ppos,3));
+    sc.add(new THREE.Points(pgeo,new THREE.PointsMaterial({color:0x4F80F0,size:.07,transparent:true,opacity:.3})));
+    /* animate */
+    var ctX=0,ctY=5;
+    document.addEventListener('mousemove',function(e){ctX=((e.clientX/window.innerWidth)-.5)*5;ctY=5+((e.clientY/window.innerHeight)-.5)*-2.5;});
+    var clk=new THREE.Clock();
+    (function anim(){
+      requestAnimationFrame(anim);
+      var t=clk.getElapsedTime();
+      cam.position.x+=(ctX-cam.position.x)*.018;
+      cam.position.y+=(ctY-cam.position.y)*.018;
+      cam.lookAt(0,2,0);
+      crG.rotation.y=t*.1;
+      boom.rotation.z=-.4+Math.sin(t*.7)*.28;
+      bkt.position.y=1.4+Math.sin(t*.7+.5)*.7;
+      jG.rotation.y=.4+Math.sin(t*.25)*.2;
+      wkrs.forEach(function(w,i){w.position.y=-1.5+Math.sin(t*1.1+i*2)*.04;});
+      lG.position.z+=.012; if(lG.position.z>22)lG.position.z=-22;
+      var pp=pgeo.attributes.position.array;
+      for(var i=0;i<PN;i++){pp[i*3+1]+=.018;if(pp[i*3+1]>22)pp[i*3+1]=0;pp[i*3]+=Math.sin(t*.4+i)*.003;}
+      pgeo.attributes.position.needsUpdate=true;
+      rdr.render(sc,cam);
+    })();
+    window.addEventListener('resize',function(){var W2=hc.clientWidth,H2=hc.clientHeight;cam.aspect=W2/H2;cam.updateProjectionMatrix();rdr.setSize(W2,H2);});
+  }
+} catch(e) { console.warn('hero3d',e); }
+
+/* ABOUT CANVAS */
+try {
+  var ac = document.getElementById('about-canvas');
+  if(ac && typeof THREE !== 'undefined') {
+    var acParent=ac.parentElement||ac;
+    var AW=acParent.offsetWidth||ac.offsetWidth||500, AH=acParent.offsetHeight||ac.offsetHeight||480;
+    var ar=new THREE.WebGLRenderer({canvas:ac,antialias:true,alpha:true});
+    ar.setSize(AW,AH); ar.setPixelRatio(Math.min(devicePixelRatio,2)); ar.setClearColor(0,0);
+    var asc=new THREE.Scene(), acam=new THREE.PerspectiveCamera(50,AW/AH,.1,100);
+    acam.position.set(0,8,14); acam.lookAt(0,0,0);
+    asc.add(new THREE.AmbientLight(0x0a1628,2.5));
+    var adl=new THREE.DirectionalLight(0x93B8FF,3); adl.position.set(5,10,5); asc.add(adl);
+    var ageo=new THREE.PlaneGeometry(18,18,40,40);
+    var apos=ageo.attributes.position;
+    for(var ai=0;ai<apos.count;ai++){var ax=apos.getX(ai),az=apos.getZ(ai);apos.setZ(ai,Math.sin(ax*.4)*1.8+Math.cos(az*.35)*1.4+Math.sin(ax*.9+az*.6)*.9);}
+    apos.needsUpdate=true; ageo.computeVertexNormals();
+    var amesh=new THREE.Mesh(ageo,new THREE.MeshStandardMaterial({color:0x0d1a2e,roughness:.85}));
+    amesh.rotation.x=-Math.PI/2; asc.add(amesh);
+    var awgeo=ageo.clone();
+    var awmesh=new THREE.Mesh(awgeo,new THREE.MeshStandardMaterial({color:0x4F80F0,wireframe:true,transparent:true,opacity:.14}));
+    awmesh.rotation.x=-Math.PI/2; awmesh.position.y=.01; asc.add(awmesh);
+    var at=0;
+    (function aaim(){requestAnimationFrame(aaim);at+=.006;amesh.rotation.z=at*.08;awmesh.rotation.z=at*.08;acam.position.x=Math.sin(at*.25)*3;acam.lookAt(0,0,0);ar.render(asc,acam);})();
+  }
+} catch(e) { console.warn('about3d',e); }
+
+/* PROJECT ORBIT */
+try {
+  var ocards = Array.from(document.querySelectorAll('.ocard'));
+  var wrap2 = document.getElementById('orbit-wrap');
+  var zone = document.getElementById('orbit-zone');
+  if(ocards.length && wrap2) {
+    var N2=ocards.length, rot=0, RX=220, RY=80;
+    var projData=[
+      {type:'Bridge &middot; PMGSY',name:'Periyar Valley Bridge, Idukki',loc:'Devikulam',yr:'2023',val:'&#8377;4.2 Cr'},
+      {type:'Road &middot; PWD',name:'Adimali&ndash;Munnar Bypass Road',loc:'Idukki',yr:'2022',val:'&#8377;7.8 Cr'},
+      {type:'Culvert &middot; PMGSY',name:'Box Culvert Package, Kuttampuzha',loc:'Ernakulam',yr:'2021',val:'&#8377;2.1 Cr'},
+      {type:'Earthwork &middot; PWD',name:'NH-183 Embankment Works',loc:'Thodupuzha',yr:'2022',val:'&#8377;5.5 Cr'},
+      {type:'Bridge &middot; PMGSY',name:'Kallar River RCC Bridge',loc:'Munnar',yr:'2023',val:'&#8377;6.3 Cr'},
+      {type:'Road &middot; PMGSY',name:'Valara Connectivity Road Package',loc:'Idukki',yr:'2024',val:'&#8377;9.2 Cr'},
+      {type:'Retaining Wall &middot; PWD',name:'High-Range Slope Protection',loc:'Devikulam',yr:'2021',val:'&#8377;3.1 Cr'},
+      {type:'Civil &middot; Govt.',name:'Panchayath Infrastructure Package',loc:'Mannamkandam',yr:'2024',val:'&#8377;4.8 Cr'}
+    ];
+    function doLayout(){
+      var bestDepth=-2, bestIdx=0;
+      ocards.forEach(function(c,i){
+        var a=(i/N2)*Math.PI*2+rot;
+        var x=Math.sin(a)*RX, y=Math.cos(a)*RY;
+        var depth=Math.cos(a);
+        var scale=.52+(depth+1)/2*.48;
+        var op=.2+(depth+1)/2*.8;
+        c.style.transform='translate(calc(-50% + '+x+'px), calc(-50% + '+y+'px)) scale('+scale+')';
+        c.style.opacity=op;
+        c.style.zIndex=Math.round((depth+1)*5);
+        c.style.filter=depth<-.2?'blur('+(Math.abs(depth)*.8)+'px)':'none';
+        if(depth>bestDepth){bestDepth=depth;bestIdx=i;}
+        c.classList.toggle('active',depth>0.85);
       });
-      activeIdx = best;
-      layout();
-    }, { passive: false });
-  }
-
-  // Node click
-  nodes.forEach((node, i) => {
-    node.addEventListener('click', () => {
-      const targetAngle = -(i / total) * Math.PI * 2;
-      const diff = targetAngle - currentAngle;
-      const steps = 30;
-      let step = 0;
-      function animTo() {
-        if (step >= steps) return;
-        currentAngle += diff / steps;
-        activeIdx = i;
-        layout();
-        step++;
-        requestAnimationFrame(animTo);
+      var pd=projData[bestIdx];
+      var det=document.getElementById('orbit-detail');
+      if(det&&pd){
+        document.getElementById('od-type').innerHTML=pd.type;
+        document.getElementById('od-title').innerHTML=pd.name;
+        document.getElementById('od-loc').innerHTML='Location: '+pd.loc;
+        document.getElementById('od-yr').innerHTML='Completed: '+pd.yr;
+        document.getElementById('od-val').innerHTML='Value: '+pd.val;
       }
-      animTo();
+    }
+    doLayout();
+    wrap2.addEventListener('wheel',function(e){
+      e.preventDefault();
+      rot+=e.deltaY*.004;
+      doLayout();
+    },{passive:false});
+    ocards.forEach(function(c,i){
+      c.addEventListener('click',function(){
+        var target=-(i/N2)*Math.PI*2;
+        var diff=target-rot;
+        var steps=24, step=0;
+        function go(){if(step>=steps)return;rot+=diff/steps;doLayout();step++;requestAnimationFrame(go);}
+        go();
+      });
+    });
+    var autoTimer=setInterval(function(){rot+=.004;doLayout();},100);
+  }
+} catch(e) { console.warn('orbit',e); }
+
+/* EQUIPMENT CAROUSEL */
+try {
+  var ecards=Array.from(document.querySelectorAll('.ecard'));
+  if(ecards.length){
+    var ec=0, ET=ecards.length;
+    function eLayout(){
+      ecards.forEach(function(card,i){
+        var offset=((i-ec+ET)%ET);
+        var a=(offset/ET)*Math.PI*2;
+        var x=Math.sin(a)*310;
+        var depth=Math.cos(a); /* 1=front 0=sides -1=back */
+        var scale=0.5+(depth+1)/2*0.5; /* 0.5 to 1.0 */
+        var op=0.15+(depth+1)/2*0.85;  /* 0.15 to 1.0 */
+        card.style.transform='translate(calc(-50% + '+x+'px), -50%) scale('+scale+')';
+        card.style.opacity=op;
+        card.style.zIndex=Math.round((depth+1)*5);
+        card.classList.toggle('front',i===ec);
+      });
+    }
+    eLayout();
+    document.getElementById('car-prev').addEventListener('click',function(){ec=(ec-1+ET)%ET;eLayout();});
+    document.getElementById('car-next').addEventListener('click',function(){ec=(ec+1)%ET;eLayout();});
+    setInterval(function(){ec=(ec+1)%ET;eLayout();},3500);
+  }
+} catch(e) { console.warn('equip',e); }
+
+/* SMOOTH SCROLL */
+try {
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var t=document.querySelector(a.getAttribute('href'));
+      if(!t)return;
+      e.preventDefault();
+      t.scrollIntoView({behavior:'smooth',block:'start'});
     });
   });
+} catch(e) {}
 
-  // Auto rotate
-  setInterval(() => {
-    currentAngle += (Math.PI * 2) / total / 120;
-    layout();
-  }, 100);
-})();
-
-// === EQUIPMENT DEPTH CAROUSEL (NO SKEW) ===
-(function initEquip() {
-  const cards = document.querySelectorAll('.equip-card');
-  if (!cards.length) return;
-  const total = cards.length;
-  let current = 0;
-
-  function layout() {
-    cards.forEach((card, i) => {
-      const offset = ((i - current + total) % total);
-      const angle = (offset / total) * Math.PI * 2;
-      const x = Math.sin(angle) * 320;
-      const z = (Math.cos(angle) - 1) * 200;
-      const scale = 0.45 + ((z + 200) / 400) * 0.55;
-      const opacity = 0.3 + scale * 0.7;
-      card.style.transform = `translate(calc(-50% + ${x}px), -50%) scale(${scale})`;
-      card.style.opacity = opacity;
-      card.style.zIndex = Math.round(scale * 10);
-    });
-  }
-  layout();
-
-  document.getElementById('carousel-prev')?.addEventListener('click', () => { current = (current - 1 + total) % total; layout(); });
-  document.getElementById('carousel-next')?.addEventListener('click', () => { current = (current + 1) % total; layout(); });
-  setInterval(() => { current = (current + 1) % total; layout(); }, 3500);
-})();
-
-// SMOOTH SCROLL
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if (!t) return;
+/* CONTACT FORM */
+try {
+  document.getElementById('con-form').addEventListener('submit',function(e){
     e.preventDefault();
-    t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    var btn=this.querySelector('button');
+    btn.innerHTML='<span>Sent!</span>';
+    setTimeout(function(){btn.innerHTML='<span>Send Message</span>';},3000);
   });
-});
+} catch(e) {}
 
-// ABOUT 3D TILT
-const aboutVis = document.querySelector('.about-visual');
-if (aboutVis) {
-  aboutVis.addEventListener('mousemove', e => {
-    const r = aboutVis.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
-    aboutVis.style.transform = `perspective(900px) rotateY(${x*18}deg) rotateX(${-y*18}deg)`;
-  });
-  aboutVis.addEventListener('mouseleave', () => { aboutVis.style.transform = ''; });
-}
-
-// CONTACT FORM
-document.querySelector('.contact-form form')?.addEventListener('submit', e => {
-  e.preventDefault();
-  const btn = e.target.querySelector('button[type="submit"]');
-  btn.innerHTML = '<span>Message Sent!</span>';
-  btn.style.background = '#0f3d6e';
-  setTimeout(() => { btn.innerHTML = '<span>Send Message</span>'; btn.style.background = ''; e.target.reset(); }, 3000);
-});
-
-// PAGE LOAD FADE
-document.body.style.opacity = '0';
-document.body.style.transition = 'opacity 0.7s ease';
-window.addEventListener('load', () => setTimeout(() => { document.body.style.opacity = '1'; }, 80));
-
-</script>
-<script>
-// About canvas mini terrain
-(function(){
-  const c = document.getElementById('about-canvas');
-  if(!c || typeof THREE === 'undefined') return;
-  c.width = c.offsetWidth; c.height = c.offsetHeight;
-  const W = c.width, H = c.height;
-  const r = new THREE.WebGLRenderer({canvas:c, antialias:true, alpha:true});
-  r.setSize(W, H); r.setPixelRatio(Math.min(devicePixelRatio,2));
-  r.setClearColor(0x000000,0);
-  const sc = new THREE.Scene();
-  const cam = new THREE.PerspectiveCamera(50, W/H, 0.1, 100);
-  cam.position.set(0, 8, 14); cam.lookAt(0, 0, 0);
-  sc.add(new THREE.AmbientLight(0x0a1628, 2.5));
-  const dl = new THREE.DirectionalLight(0x93c5fd, 3);
-  dl.position.set(5, 10, 5); sc.add(dl);
-  const geo = new THREE.PlaneGeometry(18, 18, 40, 40);
-  const pos = geo.attributes.position;
-  for(let i=0; i<pos.count; i++){
-    const x=pos.getX(i), z=pos.getZ(i);
-    pos.setZ(i, Math.sin(x*.4)*1.8 + Math.cos(z*.35)*1.4 + Math.sin(x*.9+z*.6)*.9);
+/* ABOUT TILT */
+try {
+  var av=document.querySelector('.about-vis');
+  if(av){
+    av.addEventListener('mousemove',function(e){var r=av.getBoundingClientRect();var x=(e.clientX-r.left)/r.width-.5;var y=(e.clientY-r.top)/r.height-.5;av.style.transform='perspective(900px) rotateY('+(x*14)+'deg) rotateX('+(-y*14)+'deg)';});
+    av.addEventListener('mouseleave',function(){av.style.transform='';});
   }
-  pos.needsUpdate=true; geo.computeVertexNormals();
-  const mesh = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({color:0x0d1a2e, roughness:.85}));
-  mesh.rotation.x = -Math.PI/2; sc.add(mesh);
-  const wmesh = new THREE.Mesh(geo.clone(), new THREE.MeshStandardMaterial({color:0x3b82f6, wireframe:true, transparent:true, opacity:.12}));
-  wmesh.rotation.x = -Math.PI/2; wmesh.position.y = .01; sc.add(wmesh);
-  let t=0;
-  (function anim(){requestAnimationFrame(anim); t+=.006;
-    mesh.rotation.z = t*.08; wmesh.rotation.z = t*.08;
-    cam.position.x = Math.sin(t*.25)*3; cam.lookAt(0,0,0);
-    r.render(sc,cam);
-  })();
-})();
+} catch(e) {}
+
+/* FADE IN */
+document.body.style.opacity='0';
+document.body.style.transition='opacity .8s ease';
+setTimeout(function(){document.body.style.opacity='1';},400);
+
+});
 </script>
 </body>
 </html>
